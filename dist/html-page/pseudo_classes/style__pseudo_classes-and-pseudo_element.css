@@ -1,0 +1,132 @@
+
+ul:not(.other, .sidebar_ul) {
+    border: 1px solid rgb(196, 189, 189);
+    margin-left: 40%;
+    width: 30%;
+}
+
+/*first-letter
+======================*/
+
+.example__first-letter, .example__first-line, .example__selection, .example__before {
+    margin: 5px;
+}
+
+.example__first-letter p, .example__first-line p, .example__selection p {
+    text-align: justify;
+    color: black;
+    font-size: 16px;
+}
+
+.example__first-letter p::first-letter {
+	color: red;
+	font-style: italic;
+}
+
+/*first-line
+======================*/
+
+.example__first-line p::first-line {
+	color: red;
+	font-style: italic;
+}
+
+/*selection
+======================*/
+
+.example__selection::selection {
+    color: blue;
+    background-color: orange;
+    }
+
+.example__selection::-moz-selection {
+    color: blue;
+    background-color: orange; 
+}
+
+/*before
+======================*/
+
+.example__before p::before {
+    content: "Content before!";
+    color: black;
+} 
+
+
+/*after
+======================*/
+
+.example__after p::after {
+    content: "Content after!";
+    color: black;
+} 
+
+
+/*backdrop
+======================*/
+
+.example__backdrop h1:fullscreen::backdrop {
+    background: orange;
+}
+
+
+a:link {
+    color: orange;
+}
+
+
+/*dynamic-pseudo-classed
+======================*/
+
+.example__dynamic, .example__pseudo-classed {
+    padding-left: 40%;
+    text-decoration: none;
+    color: grey;
+}
+
+.example__dynamic:link {
+    color: green;
+    font-size: 25px;
+}
+
+.example__dynamic:visited {
+    color: rgb(44, 0, 0);
+}
+
+.example__dynamic:active {
+    color: rgb(0, 0, 0);
+}
+
+
+.example__dynamic:hover {
+    color: #FFF; 
+}
+
+.name:disabled {
+    opacity: 0.5;
+}
+
+.name:enabled {
+    box-shadow:  0 0 20px pink;
+}
+
+:indeterminate + label {
+    background: orange;
+}
+
+.example_marker li::marker { 
+    color: red;
+ }
+
+p:lang(fr) {
+    color: rgb(112, 81, 24);
+}
+
+code {
+    color: black;
+}
+
+
+body:not(pre) {
+color: rgb(82, 1, 64);
+}

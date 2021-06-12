@@ -1,0 +1,123 @@
+.text__transform-capitalize {
+    text-transform: capitalize;
+}
+
+.text__transform-uppercase {
+    text-transform: uppercase;
+}
+
+.text__transform-lowercase p{
+    text-transform: lowercase;
+}
+
+.text__white-space-normal {
+    white-space: normal;
+}
+
+.text__white-space-nowrap {
+    white-space: nowrap;
+}
+
+.text__white-space-pre {
+    white-space: pre;
+}
+
+.text__white-space-pre-wrap {
+    white-space: pre-wrap;
+}
+
+.text__white-space-pre-line {
+    white-space: pre-line;
+}
+
+.text__white-space-break-spaces {
+    white-space: break-spaces;
+}
+
+.text__tab-size {
+    tab-size: 0;
+}
+
+.text__tab-size-px { 
+    tab-size: 10px;
+}
+
+.text__word-break-normal {
+    word-break: normal; 
+}
+
+.text__word-break-break-all {
+    word-break: break-all; 
+}
+
+.text__word-break-keep-all {
+    word-break: keep-all;
+}
+
+.text__line-break-auto {
+    line-break: auto;
+}
+
+.text__line-break-loose {
+    line-break: loose;
+}
+
+.text__line-break-normal {
+    line-break: normal;
+}
+
+.text__line-break-strict {
+    line-break: strict;
+}
+
+.text__overflow-wrap-normal {
+    overflow-wrap: normal;
+}
+
+.overflow-wrap__break-word {
+    overflow-wrap: break-word;
+}
+
+.overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+}
+
+.text__align-start {
+    text-align: start;
+}
+
+.text__align-last-start {
+    text-align-last: start;
+}
+
+.text__align-all-start {
+    text-align-last: start;
+}
+
+.text__align-center {
+    text-align: center;
+}
+
+.text__align-last-center {
+    text-align-last: center;
+}
+
+.text__align-all-center {
+    text-align-last: center;
+}
+
+.text__letter-spacing-normal {
+    letter-spacing: normal;
+}
+
+.text__letter-spacing-normal {
+    letter-spacing: 0.1em;
+}   
+
+.text-indent-each-line { 
+    text-indent: 2em each-line;
+}
+
+.text-indent-hanging { 
+    text-indent: 2em hanging; 
+}

@@ -1,0 +1,44 @@
+
+.app {
+    display: flex;
+    margin: 50px 0;
+    justify-content: space-around;
+}
+
+.checkbox__input._hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: wheat;
+    overflow: hidden;
+    clip: rect(0 0 0 0);   
+}
+
+.checkbox__content::after {
+    content: "";
+    display: inline-block;
+    background-attachment: local;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(145, 144, 144);
+    box-sizing: border-box; 
+}
+
+.checkbox__content {
+    line-break: auto;
+    overflow-wrap: normal;
+}
+
+.checkbox__input:checked + .checkbox__content::after  {
+    content: url("../../img/icon.svg"); 
+    box-sizing: border-box;
+}
+
+.checkbox__input:disabled + .checkbox__content::after  {
+    opacity: 0.5;
+}
+
+.checkbox__input:focus + .checkbox__content::after  {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

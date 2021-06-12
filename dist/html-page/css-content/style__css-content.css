@@ -1,0 +1,60 @@
+.section__for-content > div{
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    height: 200px;
+    /* border: 2px  rgb(238, 157, 157); */
+    box-shadow: inset 30px 50px 50px rgb(235, 137, 137, 0.2) ;
+}
+
+.content__red-circle:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: calc(57%);
+    left: -webkit-calc(57%);
+    top: 26%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #AC170E;
+    background: rgb(233, 75, 12);
+    box-shadow: 0 2px 4px #4f5253;
+}
+
+.content__border {
+    border: 1px solid rgb(177, 79, 79);
+    z-index: 2;
+}
+
+.content__border::before {
+    position: absolute;
+    left: calc(55% + 10px);
+    left: -webkit-calc(55% + 10px);
+    top: calc(70% + 10px);
+    top: -webkit-calc(70% + 10px);
+    width: 5%;
+    height: 5%;
+    padding-top: 1%;
+    display: inline-block;
+    content: "hello";
+    text-align: center;
+    border: 1px solid #AC170E;
+    background: rgb(221, 185, 170);
+    box-shadow: 0 2px 4px #4f5253;
+}
+
+.content__border::after {
+    position: absolute;
+    left: calc(55% + 10px);
+    left: -webkit-calc(54% + 10px);
+    top: calc(55% + 10px);
+    top: -webkit-calc(55% + 10px);
+    content: "";
+    display: inline-block;
+    width: 5%;
+    height: 5%;
+    border-color: transparent transparent hotpink transparent;
+    border-style: solid;
+    border-width: 0 20px 20px 20px;
+}

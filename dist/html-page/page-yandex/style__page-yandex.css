@@ -1,0 +1,213 @@
+body {
+    font: 81.25% Arial, Helvetica,'Helvetica Neue',sans-serif;
+    font-size: 81.25%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+    margin-right: 200px;
+    padding-top: 8px;
+}
+
+
+.header__datetime {
+    color: #90919d;
+    margin-left: 9px;
+}
+
+.header__location-link {
+    color: #90919d;
+    margin-left: 4px;
+}
+
+.options-item__btn {
+    position: absolute;
+    top: 0px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link__label { 
+    white-space: nowrap;
+    font-weight: 800;
+}
+
+.content {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 900px;
+    border: 1px dotted rgb(117, 0, 0);
+    margin: auto;
+}
+
+.app {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.container__left {
+    float: left;
+    width: 65%;
+}
+
+.news__header {
+    display: flex;
+    width: 60%;
+    justify-content: space-between; 
+
+}
+
+.link__title._news {
+    color: #6da2e1;
+}
+
+.link__title {
+    color: #0054b9;
+    line-height: 1.25;
+    font-size: 145%;
+}
+
+.link__title._main {
+    font-weight: 600;
+}
+
+.panel .panel__item {
+    list-style: none; 
+    margin-left: -35px;
+    margin-bottom: 8px;
+}
+
+.panel__item .link__title {
+    color: black;
+    font-size: 120%;
+    margin-top: 9px;
+}
+
+.link__image { 
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+}
+
+.whether__header {
+    margin: 5px 10px;
+    width: 200px;
+}
+
+.whether__content {
+    display: flex;
+    width: 300px;
+    justify-content: space-between; 
+}
+
+.link__icon {
+    width: 48px;
+    height: 48px;
+    background-image: url(img/whether-1.svg);
+    background-size: 100% 100%;
+}
+
+.link__ahead {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 20px 20px;
+}
+
+.link__ahead._morning {
+    background-image: url(img/whether-2.svg);
+}
+
+._afternoon.link__ahead {
+    background-image: url(img/whether-3.svg);
+}
+
+.link__ahead._night {
+    background-image: url(img/whether-1.svg);
+}
+
+
+.whether__link, .app__item-title {
+    color: black;
+}
+
+.whether__date {
+    color: #90919d;
+}
+
+.whether__link._actual, .whether__card {
+    display: flex;
+}
+
+.link__date {
+    color: #90919d;
+}
+
+.link__temp {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-top: 12px;
+}
+
+.link__temp-ahead {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.link__card {
+    display: flex;
+}
+
+.whether__link:not(.whether__link:nth-child(1)) {
+    margin-top: 10px;
+}
+
+.traffic__link  { 
+    color: #0054b9;
+}
+
+.link__title-list {
+    margin-bottom: 15px;
+
+}
+/* .traffic__header {
+    margin: 5px 10px;
+    color: #0054b9;
+    line-height: 1.25;
+    font-size: 145%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between; 
+} */
+
+.app {
+    height: 60px;
+    width: 100%;
+    border: 1px solid red;
+}
+
+
+.link__image._app {
+    width: 44px;
+    height: 44px;
+    vertical-align: middle;
+}
+
+.link__box {
+    width: 22px;
+    height: 22px;
+}
