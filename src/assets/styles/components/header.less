@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between; 
+    margin-right: 200px;    
+    padding-top: 8px;
+
+    color: @custom-header;
+    &__datetime {
+        margin-left: 9px;
+    }
+
+    &__location-link {
+        margin-left: 4px;
+    }
+    &__whether-link {
+        &._map {
+            line-height: 20px;
+        }
+    }
+}

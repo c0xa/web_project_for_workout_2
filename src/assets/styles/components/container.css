@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  width: 900px;
+  margin: auto;
+}
+.container__left {
+  width: 65%;
+}
+.container__right {
+  width: 35%;
+}

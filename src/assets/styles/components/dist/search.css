@@ -1,0 +1,32 @@
+.search {
+  width: 100%;
+}
+.search__box {
+  box-sizing: content-box;
+  margin-left: 20%;
+  outline-color: #fc0;
+  outline-style: solid;
+  width: 80%;
+  border-radius: 0.625rem;
+  display: flex;
+}
+.search__input {
+  display: block;
+  height: 2.25em;
+  box-sizing: content-box;
+  border-radius: 0.625rem;
+  width: 100%;
+}
+.search__button {
+  height: 2.25em;
+  width: 80px;
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  background-color: #fc0;
+  font-size: 123.1%;
+  border-radius: 0 0.625rem 0.625rem 0;
+}

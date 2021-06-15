@@ -1,0 +1,25 @@
+.whether { 
+    &__header {
+        padding: 0px;
+        width: 160px;
+    }
+    &__content {
+        padding-top: 5px;
+        display: flex;
+        width: 250px;
+        justify-content: space-between; 
+    }
+    &__link {
+        color: black;
+        &_actual {
+            display: flex;
+        }
+    }
+    &__link:not(.whether__link:nth-child(1)) {
+        margin-top: 10px;
+    }
+}
+.app__item-title {
+    color: black;
+}
+

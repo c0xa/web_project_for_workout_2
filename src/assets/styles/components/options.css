@@ -1,0 +1,18 @@
+.options {
+  display: flex;
+  position: relative;
+  right: 20px;
+}
+.options-item__btn {
+  position: relative;
+  top: -6px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  color: #bdb2b2;
+}
+.options-item__icon-svg {
+  color: #cfcaca;
+}

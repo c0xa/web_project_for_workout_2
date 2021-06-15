@@ -1,0 +1,22 @@
+.whether__header {
+  padding: 0px;
+  width: 160px;
+}
+.whether__content {
+  padding-top: 5px;
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+.whether__link {
+  color: black;
+}
+.whether__link_actual {
+  display: flex;
+}
+.whether__link:not(.whether__link:nth-child(1)) {
+  margin-top: 10px;
+}
+.app__item-title {
+  color: black;
+}

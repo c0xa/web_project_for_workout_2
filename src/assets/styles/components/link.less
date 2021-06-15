@@ -1,0 +1,88 @@
+
+.link {
+    text-decoration: none;
+    color: currentColor;
+    &__svg {
+        fill: @custom-header;
+    }
+
+    &__label { 
+        white-space: nowrap;
+        font-weight: 800;
+    }
+    
+    &__title {
+    line-height: 1.25;
+    .font_loaded;
+        &._main {
+            font-weight: 600;
+            font-size: 123%;
+        }
+        &._news {
+            color: #6da2e1;
+            font-size: 123%;
+        }
+        &._widget-blue {
+            color: #0054b9;
+        }
+         
+        &._rate {
+            font-size: 26px;
+            padding-bottom: 5px;
+            margin-left: 10px;
+        }
+        &._indicator {
+            font-weight: 550;
+            text-transform: uppercase;
+            font-size: .93em;
+        }
+        &._login {
+            width: 180px;
+            font-size: 1.08em;
+            font-weight: 500;
+            text-align: center; 
+            line-height: 40px;
+        }
+
+        &._advertising {
+            position: relative;
+            left: 40px;
+            line-height: 100px;
+            text-align: center; 
+        }
+        &._target {
+            font-size: 24px;
+            line-height: 1.13em;
+        }
+    }
+
+    &__date {
+        color: @custom-header;
+    }
+
+    &__temp {
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+
+    &__temp-ahead {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    &__image { 
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+        &_app {
+            width: 44px;
+            height: 44px;
+            vertical-align: middle;
+        }
+    }
+
+    &__card {
+        display: flex;
+    }
+}

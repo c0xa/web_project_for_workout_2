@@ -1,17 +1,13 @@
 .app {
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family: system-ui, Arial, sans-serif;
-
-    &__icon {
-        fill: @custom-blue;
-    }
-
-    &__svg-store {
-        &._hidden {
-            .hidden();
+    &__item {
+        &-link {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
