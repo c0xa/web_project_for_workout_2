@@ -1,0 +1,100 @@
+.table_collapse table, .table_separate table {
+   width: 400px;
+   border: 1px solid grey;
+ }
+
+ table {
+    margin: 5% 25%;
+  }
+ 
+ .table_collapse table {
+   border-collapse: collapse;
+   empty-cells: hide;
+ }
+
+ .table_separate table {
+   border-collapse: separate;
+   border-spacing: 10px 20px;
+ }
+
+ .table_collapse th, .table_separate th, .table_minimalizm th, 
+ .table_collapse td, .table_separate td, .table_minimalizm td {
+   border: 1px solid grey;
+   width: 20%;
+   padding: 10px 15px;
+   text-align: center;
+}
+
+caption {
+   caption-side: bottom;
+   text-align: right;
+   padding: 10px 0;
+   font-size: 14px;
+   color: black;
+}
+
+table td:hover, table th:hover {
+  background-color: rgba(212, 255, 241, 0.479);
+}
+
+tr:hover {
+  background-color: rgb(250, 234, 214);
+}
+
+.table_minimalizm th {
+  font-weight: normal;
+  border-bottom: 2px solid #a5b5e7;
+  border-right: 30px solid rgb(219, 217, 213);
+  border-left: 30px solid rgb(219, 217, 213);
+  color: rgb(27, 38, 58);
+  padding: 8px 2px;
+ }
+
+.table_minimalizm td {
+  border-right: 30px solid rgb(219, 217, 213);
+  border-left: 30px solid rgb(219, 217, 213);
+  color: #669;
+  padding: 12px 2px;
+ }
+
+.table_box table{
+  border-collapse: collapse;
+  empty-cells: hide;
+  border: 1px solid rgb(207, 222, 248);
+ }
+
+.table_box td, .table_box th,
+.table_gorizont-zebra th, .table_gorizont-zebra td,
+.table_background th, .table_background td {
+   width: 20%;
+   padding: 10px 15px;
+   text-align: center;
+}
+
+.table_background table {
+  background: url("../../img/background-1.jpg") 98% 86% no-repeat;
+  color: rgb(162, 131, 221);
+}
+
+.table_background th, .table_background td {
+  border: 1px solid rgb(99, 64, 165);
+}
+
+.table_gorizont-zebra th {
+  color:rgb(7, 49, 97);
+}
+
+.table_gorizont-zebra tr:nth-child(2n) {
+  background-color: rgb(133, 173, 241);
+}
+
+.table_box tr {
+  background-color: rgb(207, 222, 248);
+  border-bottom: 2px solid rgb(255, 255, 255);
+   
+ }
+
+ .table_box th {
+   background-color: rgb(148, 184, 248);
+ }
+

@@ -1,0 +1,126 @@
+body {
+    background-color: rgb(220, 226, 220);
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content {
+    width: 60%;
+    background-color: rgb(219, 217, 213);
+    margin: auto;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.border-visibility {
+    border: 2px solid rgb(219, 217, 213);
+    box-shadow: inset 0 -3em 3em rgba(196, 187, 187, 0.808),
+                0 0  0 2px rgba(196, 187, 187, 0.808),
+                0.3em 0.3em 1em rgba(151, 151, 151, 0.3);
+}
+
+/*HEADER
+======================*/
+
+header {
+    height: 100px;
+    background-color: grey;
+    
+}
+
+header p {
+    color: white;
+    overflow: auto;
+    font-family: 'trebuchet ms';
+    white-space: pre-wrap;
+    font-size: 40px;
+    
+}
+
+/*SECTION
+======================*/
+
+.main {
+    height: 500px;
+}
+
+.main p {
+    font-family: 'Arvo', serif;
+    color: rgb(58, 12, 12);
+    text-align: center;
+    padding-top: 2%;
+}
+
+/*SIDEBAR
+======================*/
+
+.sidebar {
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 15%;
+}
+
+._html-css {
+    left: 10%;
+}
+
+._js {
+    right: 10%;
+}
+
+.sidebar__link._title {
+    background-color: rgb(220, 226, 220);
+    color: black;
+}
+
+.sidebar__link {
+    display: block;
+    background-color: grey;
+    height: 3%;
+    margin: 5px;
+    border-radius: 10px;
+    min-height: 2%;
+    text-decoration: none;
+    line-height: 15px;
+    text-align: center;
+    color: white;
+    font-family: 'Arvo', serif;
+    font-size: 15px;
+}
+
+.sidebar__link:hover {
+    color: rgb(18, 18, 77);
+}
+
+.view-element {
+    box-shadow: inset 0 -3em 3em rgba(240, 174, 174, 0.808),
+                0 0  0 2px rgba(219, 117, 117, 0.808),
+                0.3em 0.3em 1em rgba(179, 104, 104, 0.3);
+    box-sizing: content-box;
+}
+
+.flex-element {
+    display: flex;
+    margin: 0px;
+    justify-content: space-around;
+}
+
+/*bottom section 
+======================*/
+
+.bottom-section {
+    height: 20%;
+    background-color: rgb(220, 226, 220);
+}
+
+.bottom-section p {
+    color: rgba(49, 46, 46, 0.63);
+    text-align: center;
+    padding: auto;
+}

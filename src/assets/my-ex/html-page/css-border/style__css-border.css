@@ -1,0 +1,47 @@
+.border > div {
+    margin: 5px auto;
+    width: 50%;
+    height: 50px;
+}
+
+.none {
+    border: 4px rgba(250, 120, 120, 0.808) none;
+    cursor: pointer;
+}
+
+.hidden {
+    border: 4px rgba(250, 120, 120, 0.808) hidden;
+    cursor: pointer;
+}
+
+.dotted {
+    border: 4px rgba(250, 120, 120, 0.808) dotted;
+}
+
+.dashed {
+    border: 4px rgba(250, 120, 120, 0.808) dashed;
+}
+
+.solid {
+    border: 1px rgba(250, 120, 120, 0.808) solid;
+}
+
+.double {
+    border: 4px rgba(250, 120, 120, 0.808) double;
+}
+
+.groove {
+    border: 4px rgba(250, 120, 120, 0.808) groove;
+}
+
+.ridge {
+    border: 4px rgba(250, 120, 120, 0.808) ridge;
+}
+
+.inset {
+    border: 4px rgba(250, 120, 120, 0.808) inset;
+}
+
+.outset {
+    border: 4px rgba(250, 120, 120, 0.808) outset;
+}

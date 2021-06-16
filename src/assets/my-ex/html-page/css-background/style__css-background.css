@@ -1,0 +1,71 @@
+.background > div {
+    margin: 20px auto;
+    width: 80%;
+    height: 300px;
+    border: 1px solid rgba(196, 187, 187, 0.808);
+    box-shadow: 5px 5px 5px rgba(196, 187, 187, 0.808);
+    background-image: url(../../img/small.png);
+    background-size: 20%;
+}
+
+.repeat-x {
+    background-repeat: repeat-x;
+}
+
+.repeat-y {
+    background-repeat: repeat-y;
+}
+
+.repeat {
+    background-repeat: repeat;
+}
+
+.space {
+    background-repeat: space;
+}
+
+.round_space {
+    ​​​​​​​background-repeat: round space;
+}
+
+.round {
+    background-repeat: round;
+}
+
+.repeat_space {
+    background-repeat: repeat space;
+}
+
+.repeat_repeat {
+    background-repeat: repeat repeat;
+}
+
+.attachment_scroll {
+    background-attachment: scroll;
+}
+
+.attachment_fixed {
+    background-attachment: fixed;
+}
+
+.attachment_local {
+    background-attachment: local;
+}
+
+.clip_border-box {
+    background-clip: border-box;
+    margin: 5px;
+    padding: 5px;
+}
+
+.clip_padding-box {
+    background-clip: padding-box;
+    margin: 5px;
+    padding: 5px;
+}
+
+.clip_content-box {
+    background-clip: content-box;
+    margin: 5px;
+    padding: 5px;
+}

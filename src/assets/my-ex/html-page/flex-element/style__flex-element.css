@@ -1,0 +1,32 @@
+.flag-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flag-2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flag-3 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.color-1, .color-2, .color-3 {
+    width: 30%;
+    height: 100px;
+    border: 1px black;
+}
+
+.color-1 {
+    background-color: rgb(8, 0, 77);
+}
+
+.color-2 {
+    background-color: rgb(144, 135, 222);
+}
+
+.color-3 {
+    background-color: rgb(208, 206, 223);
+}

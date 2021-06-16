@@ -1,0 +1,28 @@
+
+.body {
+    width: 100%;
+}
+
+.board {
+    height: 400px;
+    width: 50%;
+    margin:  40px auto;
+}
+
+.board__cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.board__row {
+    display: flex;
+}
+
+.board__row._even .board__cell:nth-child(2n) {
+    background-color: black;
+}
+
+.board__row._uneven .board__cell:nth-child(2n - 1) {
+    background-color: black;
+}

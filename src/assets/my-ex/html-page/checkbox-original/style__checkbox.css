@@ -1,0 +1,45 @@
+.app {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.checkbox {
+    margin: 25px;
+    justify-content: space-around;
+    display: flex;
+}
+
+.checkbox__input._hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: wheat;
+    overflow: hidden;
+    clip: rect(0 0 0 0);   
+}
+
+.checkbox__content::after {
+    content: "";
+    display: inline-block;
+    background-attachment: local;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(145, 144, 144);
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+
+.checkbox__input:checked + .checkbox__content::after  {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='rgba(6, 189, 0, 0.979)' viewBox='0 0 25 25' width='40px' height='40px'><path fill-rule='evenodd' d='M 22.59375 3.5 L 8.0625 18.1875 L 1.40625 11.5625 L 0 13 L 8.0625 21 L 24 4.9375 Z'/></svg>");
+    box-sizing: border-box;
+}
+
+.checkbox__input:disabled + .checkbox__content::after  {
+    opacity: 0.5;
+}
+
+.checkbox__input:focus + .checkbox__content::after  {
+    box-shadow: 0 14px 28px rgba(68, 68, 68, 0.979), 0 10px 10px rgba(0,0,0,0.22);
+}
