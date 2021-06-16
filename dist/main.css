@@ -73,21 +73,23 @@
 }
 .link__temp {
   font-size: 26px;
-  line-height: 1.25;
 }
 .link__temp-ahead {
   font-size: 12px;
   margin-top: 5px;
 }
 .link__image {
-  width: 14px;
-  height: 14px;
-  background-size: contain;
+  display: inline-block;
 }
-.link__image_app {
+.link__image._app {
   width: 44px;
   height: 44px;
-  vertical-align: middle;
+  background-size: 44px 44px;
+}
+.link__image._news {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
 }
 .link__card {
   display: flex;
