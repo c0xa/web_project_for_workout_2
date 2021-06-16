@@ -11,6 +11,8 @@
         font-weight: 800;
     }
     
+
+
     &__title {
     line-height: 1.25;
     .font_loaded;
@@ -48,11 +50,10 @@
             position: relative;
             left: 40px;
             line-height: 100px;
-            text-align: center; 
-        }
-        &._target {
-            font-size: 24px;
-            line-height: 1.13em;
+            text-align: center;
+            &._target {
+                font-size: 20px;
+            }
         }
     }
 
@@ -82,9 +83,42 @@
             height: 20px;
             background-size: 20px 20px;
         }
+
+        &._logo-yandex {
+            margin: 5px;
+            width: 30px;
+            height: 30px;
+            background-size: 30px 30px;
+        }
+        &._logo {
+            float: left;
+            margin-right: 5px   ;
+            width: 30px;
+            height: 26px;
+            background-size: 30px 26px;
+        }
+
+        &._app-mini {
+            width: 15px;
+            height: 15px;
+            background-size: 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     }
 
     &__card {
         display: flex;
+    }
+
+    &__row {
+        display: flex;
+    }
+
+    &-background {
+        width: 50%;
+        height: 100%;
+        float: left;
+        background-color: rgb(148, 147, 147);
     }
 }

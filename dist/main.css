@@ -64,9 +64,8 @@
   line-height: 100px;
   text-align: center;
 }
-.link__title._target {
-  font-size: 24px;
-  line-height: 1.13em;
+.link__title._advertising._target {
+  font-size: 20px;
 }
 .link__date {
   color: #90919d;
@@ -91,8 +90,37 @@
   height: 20px;
   background-size: 20px 20px;
 }
+.link__image._logo-yandex {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+.link__image._logo {
+  float: left;
+  margin-right: 5px   ;
+  width: 30px;
+  height: 26px;
+  background-size: 30px 26px;
+}
+.link__image._app-mini {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .link__card {
   display: flex;
+}
+.link__row {
+  display: flex;
+}
+.link-background {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background-color: #949393;
 }
 body {
   font: 81.25% Arial, Helvetica, 'Helvetica Neue', sans-serif;
@@ -189,7 +217,7 @@ body {
 .app {
   margin-top: 10px;
   height: 60px;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
   display: flex;
 }
@@ -201,19 +229,24 @@ body {
   width: 100%;
 }
 .search__box {
-  box-sizing: content-box;
-  margin-left: 20%;
-  outline-color: #fc0;
-  outline-style: solid;
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 30px;
+  margin-left: 15%;
+  border: 2px solid #fc0;
   width: 80%;
   border-radius: 0.625rem;
-  display: flex;
 }
 .search__input {
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 2px;
+  background: #fff;
+  background-clip: border-box;
   display: block;
   height: 2.25em;
-  box-sizing: content-box;
-  border-radius: 0.625rem;
+  border-radius: 0.625rem 0.375rem 0.375rem 0.625rem;
   width: 100%;
 }
 .search__button {
@@ -224,10 +257,13 @@ body {
   overflow: visible;
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  border-color: transparent;
   background-color: #fc0;
   font-size: 123.1%;
   border-radius: 0 0.625rem 0.625rem 0;
+}
+.search__log {
+  float: left;
 }
 .notif {
   position: absolute;
@@ -267,7 +303,11 @@ body {
   margin-top: 30px;
   border-radius: 6px;
   border: 1px solid #ccc1c1;
+  width: 800px;
+}
+.advertising-link {
   height: 100px;
+  width: 100%;
 }
 .font_loaded {
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
