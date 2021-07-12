@@ -1,15 +1,12 @@
 class Office extends Component {
-    constructor() {
+    constructor(text) {
         if (typeof Office.instance === 'object') {
             return Office.instance;
         }
-        super('div', {classes: 'office'});
-        Office.instance = this;
-        return this;
-    }
 
-    _addRow(nameRow) {
-        let 
+        super('div', text, 'office');
+        // Office.instance = this;
+        return this;
     }
 
 }

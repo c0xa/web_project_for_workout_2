@@ -1,7 +1,8 @@
 class Component {
-    constructor (tag, classes = "", props = {}) {
+    constructor (tag, text, classes, props = {}) {
         this.element = document.createElement(tag);
         this.element.className = classes;
+        this.element.innerHTML = text;
     }
 
     setState(state) {
