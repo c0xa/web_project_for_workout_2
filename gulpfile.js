@@ -13,7 +13,7 @@ gulp.task("html", function () {
 });
 	
 gulp.task("less", function () {
-	return src("./front/assets/styles/main.less")
+	return src("./style/assets/styles/main.less")
 		.pipe(less())
 		.pipe(
 			autoprefixer({
@@ -26,7 +26,10 @@ gulp.task("less", function () {
 gulp.task("scripts", function() {
 	return src([
 		'./front/src/store/store.js',
-		'./front/src/main.js'
+        './front/src/components/component/component.js',
+        './front/src/components/office/office.js',
+		'./front/src/main.js',
+       
 	]) 
    		.pipe(concat('main.js')) 
    		.pipe(dest('./dist'));
@@ -40,7 +43,7 @@ gulp.task("serve", function () {
 	});
 
 	gulp.watch("./front/index.html").on("change", series("html"));
-	gulp.watch("./front/assets/styles/**/*.less").on("change", series("less"));
+	gulp.watch("./style/assets/styles/**/*.less").on("change", series("less"));
 	gulp.watch("./front/src/**/*.js").on("change", series("scripts"));
 	
 	gulp.watch("./dist/index.html").on("change", browserSync.reload);
