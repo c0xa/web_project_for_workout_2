@@ -13,7 +13,7 @@ gulp.task("html", function () {
 });
 	
 gulp.task("less", function () {
-	return src("./style/assets/styles/main.less")
+	return src("./front/assets/styles/main.less")
 		.pipe(less())
 		.pipe(
 			autoprefixer({
@@ -43,7 +43,7 @@ gulp.task("serve", function () {
 	});
 
 	gulp.watch("./front/index.html").on("change", series("html"));
-	gulp.watch("./style/assets/styles/**/*.less").on("change", series("less"));
+	gulp.watch("./front/assets/styles/**/*.less").on("change", series("less"));
 	gulp.watch("./front/src/**/*.js").on("change", series("scripts"));
 	
 	gulp.watch("./dist/index.html").on("change", browserSync.reload);
