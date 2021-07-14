@@ -1,13 +1,17 @@
 DELNAME	= 	node_modules \
 			.vscode \
 			dist \
-			package-lock.json
+			package-lock.json \
+			.idea
 
 install:
 	cd server;
 	npm install;
+	npm install gulp-svgmin --save-dev;
+	npm install gulp-svgstore --save-dev;
+	npm install gulp-replace --save-dev;
 
-start:
+run:
 	gulp
 
 clean:

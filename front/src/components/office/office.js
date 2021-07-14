@@ -1,12 +1,13 @@
 class Office extends Component {
-    constructor(text) {
-        if (typeof Office.instance === 'object') {
-            return Office.instance;
-        }
+    constructor(column) {
+        super('div', "", 'office');
 
-        super('div', text, 'office');
-        // Office.instance = this;
+        let office = [];
+        for (let i = 0; i < column; i++) {
+            let collumn = new collumnOffice(i + 1);
+            office.push(collumn.element);
+        }
+        office.forEach(collumn => this.element.append(collumn))
         return this;
     }
-
 }

@@ -1,8 +1,11 @@
 class Component {
-    constructor (tag, text, classes, props = {}) {
+    constructor (tag, text, classes, atr = false, props = {}) {
         this.element = document.createElement(tag);
         this.element.className = classes;
         this.element.innerHTML = text;
+        if (atr) {
+            this.element.setAttribute("href", "#");
+        }
     }
 
     setState(state) {

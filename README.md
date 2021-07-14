@@ -4,27 +4,18 @@ https://office-work.herokuapp.com/
 
 #  Install 
 
-
 ```
-
 make
-
 ```
 
-#  Start 
-
-
-```
-
-make start
+#  Run 
 
 ```
+make run
 
+```
 #  Delete assembly files
 
-
 ```
-
 make clean
-
 ```
