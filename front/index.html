@@ -15,9 +15,9 @@
     <!-- Анимация загрузки страницы
   	Все стили встроенны в index.html дабы прогрузиться как можно скорее -->
     <div class="page-loader">
-        <div class="spinner"></div>
-        <div class="spinner"></div>
-        <div class="spinner"></div>
+        <div class="page-loader__spinner"></div>
+        <div class="page-loader__spinner"></div>
+        <div class="page-loader__spinner"></div>
         KORONA
     </div>
     <style>
@@ -37,7 +37,7 @@
             color: #FFFFFF;
         }
 
-        .page-loader .spinner {
+        .page-loader__spinner {
             position: absolute;
             width: 100px;
             height: 100px;
@@ -46,17 +46,17 @@
         }
 
         /* Анимация для каждого элемента, но со сдвигом по времени старта */
-        .page-loader .spinner:nth-child(1) {
+        .page-loader__spinner:nth-child(1) {
             opacity: .8;
             animation: page-loader-spinner-anim 4s 0s ease-in-out infinite alternate;
         }
 
-        .page-loader .spinner:nth-child(2) {
+        .page-loader__spinner:nth-child(2) {
             opacity: .6;
             animation: page-loader-spinner-anim 4s .2s ease-in-out infinite alternate;
         }
 
-        .page-loader .spinner:nth-child(3) {
+        .page-loader__spinner:nth-child(3) {
             opacity: .4;
             animation: page-loader-spinner-anim 4s .4s ease-in-out infinite alternate;
         }

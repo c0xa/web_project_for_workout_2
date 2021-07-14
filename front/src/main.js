@@ -37,7 +37,7 @@ class App {
         // Перематываем страницу вверх, если браузер установил прокрутку
         window.scrollTo(0, 0)
         // Анимация исчезновения экрана загрузки    
-        await Animator.hide(document.querySelector('.page-loader'), 300)
-        document.querySelector('.page-loader').style.opacity = "0";
+        await Animator.hide(document.querySelector('.page-loader'), 300);
+        document.querySelector('.page-loader').style.display = "none";
     }
 }
