@@ -1,18 +1,18 @@
 class Component {
-    constructor (tag, text, classes, atr = false, props = {}) {
+    constructor (tag, text, classes, props = []) {
         this.element = document.createElement(tag);
         this.element.className = classes;
         this.element.innerHTML = text;
-        if (atr) {
-            this.element.setAttribute("href", "#");
+        for (let element of props) {
+            this.element.setAttribute(element[0], element[1]);
         }
+
     }
 
-    setState(state) {
-        this.state = {...this.state, ...state};
-        this.render();
-    }
-
+    /**
+     * Добавление элемента this переданному родителю
+     * @param {HTMLElement} parent элемент
+     */
     appendTo(parent) {
         parent.append(this.element);
     }

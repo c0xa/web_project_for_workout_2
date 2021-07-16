@@ -1,10 +1,10 @@
-class collumnOffice extends Component {
-    constructor(row) {
-        super('div', row, 'office__column column');
+class CollumnOffice extends Component {
+    constructor(part, countColumn, countRow) {
+        super('div', "", 'office__column column');
         
         let rows = [];
-        for (let i = 0; i < 6; i++) {
-            let row = new rowOffice(i + 1);
+        for (let i = 0; i < countColumn; i++) {
+            let row = new RowOffice(i + 1, part, countRow);
             rows.push(row.element);
         }
         rows.forEach(row => this.element.append(row))

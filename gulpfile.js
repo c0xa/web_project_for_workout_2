@@ -72,8 +72,13 @@ gulp.task("scripts", function() {
 		'./front/src/components/rowOffice/rowOffice.js',
 		'./front/src/components/columnOffice/columnOffice.js',
 		'./front/src/components/workplace/workplace.js',
+		'./front/src/components/cardInformation/cardInformation.js',
+		'./front/src/components/user/user.js',
+		'./front/src/components/accounts/accounts.js',
+		'./front/src/components/formAuthentication/formAuthentication.js',
 		'./front/src/modules/animator/animator.js',
 		'./front/src/modules/event/event.js',
+		'./front/src/modules/input/input.js',
 		'./front/src/main.js',
        
 	]) 

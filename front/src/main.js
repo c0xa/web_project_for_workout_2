@@ -1,6 +1,10 @@
 // Инициализация приложения после окончания загрузки страницы
 window.addEventListener('load', () => new App())
 
+const PARTOFFICE = 2;
+const COLUMNOFFICE = 4;
+const ROWOFFICE = 5;
+
 /** App - Главный класс приложения импортирующий всё остальное и управляющий данными */
 class App {
     /** Точка входа в приложение */
@@ -13,12 +17,36 @@ class App {
         // Регистрация обработчика событий скрола страницы
         const store = createStore(reducer);
 
+        let userAccount = new Accounts();
+
         store.subscribe((state) => console.log(state));
 
         let app = document.getElementById('app');
 
-        let place1 = new Office(2);
-        app.append(place1.element);
+        let authentication = new FormAuthentication();
+
+        app.append(authentication.element);
+
+        let btnAuthentication = document.querySelector('.form-authentication__btn');
+
+        let place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
+
+        let content = new Component("div", " ", "content");
+
+        btnAuthentication.addEventListener('click', function () {
+            let form = document.querySelector('.form-authentication');
+
+            let login = form.elements.login;
+            let password = form.elements.password;
+            if (userAccount.toEqual(login.value, password.value)) {
+                Animator.hide(form, 400);
+                let cardInformation = new CardInformation(login.value, userAccount.toString(login.value));
+                content.element.append(place.element, cardInformation.element)
+                app.append(content.element);
+            } else {
+                alert("Wrong data")
+            }
+        })
 
         await this.registerEvents();
 
@@ -38,6 +66,5 @@ class App {
         window.scrollTo(0, 0)
         // Анимация исчезновения экрана загрузки    
         await Animator.hide(document.querySelector('.page-loader'), 300);
-        document.querySelector('.page-loader').style.display = "none";
     }
 }

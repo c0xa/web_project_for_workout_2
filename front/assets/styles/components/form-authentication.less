@@ -1,0 +1,65 @@
+.form-authentication {
+    position: absolute;
+
+    display: flex;
+
+    flex-direction: column;
+
+    left: 50%;
+    top: 0;
+
+    width: 300px;
+    height: 200px;
+
+    margin: 20% auto;
+    padding: 40px;
+
+    -webkit-transform: translate(-200px, -150px);
+    -moz-transform: translate(-200px, -150px);
+    -ms-transform: translate(-200px, -150px);
+    -o-transform: translate(-200px, -150px);
+    transform: translate(-200px, -150px);
+
+    border: 1px solid @default-white;
+    box-shadow: 0 2px 14px @default-grey;
+    border-radius: 20px;
+
+    &__input-login, &__input-password {
+        width: 100%;
+        height: 40px;
+
+        border: 1px solid @default-grey;
+        border-radius: 8px;
+        box-shadow: 0 2px 14px @default-grey;
+
+        margin-top: 20px;
+
+        text-align: center;
+        line-height: 40px;
+    }
+
+    &__btn {
+        width: 50%;
+        height: 80px;
+
+        padding: 1em 2em;
+        margin: 40px auto;
+
+        cursor: pointer;
+
+        color: @default-white;
+
+        background: repeating-radial-gradient(circle, @default-shadow-white, @default-shadow-white 10px,
+        @default-shadow-blue 10px, @default-shadow-blue 20px);
+
+        border: 2px solid @default-white;
+        border-radius: 8px;
+        transition: opacity 3s;
+
+        &:hover {
+            opacity: .6;
+        }
+
+    }
+
+}

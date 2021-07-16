@@ -20,6 +20,7 @@ class Animator {
                 resolve()
             }, duration)
         })
+
     }
 
     /**
