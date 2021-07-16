@@ -7,12 +7,12 @@ class RowOffice extends Component {
 
             let element = document.createElement("div");
             element.className = "row__workplace workplace";
-        
+            element.setAttribute("id", "p" + part + "_r" + column + "_n" + (+i + 1));
             let elementText = document.createElement("span");
             elementText.className = "workplace__text";
             elementText.innerText = i + 1;
 
-            let place = new Workplace(i + 1, part, column);
+            let place = new Workplace();
             element.append(place.element, elementText)
             worksplaces.push(element);
         }

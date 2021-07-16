@@ -44,4 +44,27 @@ class Animator {
             }, duration)
         })
     }
+
+    /**
+     * Плавное появление отметки о занятости места
+     * @param {HTMLElement} element Объект над которым производится событие
+     * @param {Number} duration Время анимации в мс
+     * @returns {Promise<void>}
+     */
+    static async visit(element, duration = 0) {
+        return new Promise(resolve => {
+            element.animate([
+                { backgroundColor: white },
+                { backgroundColor: grey },
+            ], {
+                duration,
+                easing: 'ease-out',
+            })
+            setTimeout(() => {
+                element.setAttribute('visit', true)
+                resolve()
+            }, duration)
+        })
+
+    }
 }

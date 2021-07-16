@@ -23,12 +23,15 @@ class App {
 
         let app = document.getElementById('app');
 
+        // создание формы входа
         let authentication = new FormAuthentication();
 
+        // добавления формы
         app.append(authentication.element);
 
         let btnAuthentication = document.querySelector('.form-authentication__btn');
 
+        // создание формы для офиса
         let place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
         let content = new Component("div", " ", "content");
@@ -39,10 +42,13 @@ class App {
             let login = form.elements.login;
             let password = form.elements.password;
             if (userAccount.toEqual(login.value, password.value)) {
+                let fullName = userAccount.toString(login.value);
                 Animator.hide(form, 400);
-                let cardInformation = new CardInformation(login.value, userAccount.toString(login.value));
+                let cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element)
                 app.append(content.element);
+                place.checkWorkplace(store, fullName);
+
             } else {
                 alert("Wrong data")
             }
