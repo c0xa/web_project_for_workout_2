@@ -13,22 +13,37 @@ class Office extends Component {
         return this;
     }
 
-    checkWorkplace(store, username) {
+    checkWorkplace(store, username, visitedWorkspace) {
         let office = document.querySelector('.office');
 
         office.onclick = function(event) {
             let target = event.target;
             if (target.classList.contains("workplace")) {
-                if (this.selectedTd && this.selectedTd.hasAttribute("visit")) {
+                let index = 0;
+                visitedWorkspace.forEach(element => {   
+                    if (element.getAttribute("username") === username) {
+                        this.selectedTd = element;
+                        visitedWorkspace.splice(index, 1);
+                    }
+                    index++;
+                })
+                if (this.selectedTd && this.selectedTd.hasAttribute("visit") && this.selectedTd.getAttribute("username") === username) {
                     this.selectedTd.removeAttribute("visit");
+                    this.selectedTd.removeAttribute("username");
                 }
                 this.selectedTd = target;
                 target.setAttribute("visit", true);
+                target.setAttribute("username", username);
+                visitedWorkspace.push(target);
                 let d = new Date();
                 store.dispatch({
                     type: 'ADD',
-                    payload: [target.getAttribute("id"), username, d]
+                    payload: {
+                        workplace: target.getAttribute("id"), 
+                        username: username,
+                        data: d}
                 });
+                
             }
         };
     }

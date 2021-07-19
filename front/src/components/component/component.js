@@ -3,18 +3,17 @@ class Component {
         this.element = document.createElement(tag);
         this.element.className = classes;
         this.element.innerHTML = text;
-        for (let element of props) {
-            this.element.setAttribute(element[0], element[1]);
+        for (const [ name, value ] of props) {
+            this.element.setAttribute(name, value)
         }
-
     }
 
     /**
      * Добавление элемента this переданному родителю
      * @param {HTMLElement} parent элемент
      */
-    appendTo(parent) {
-        parent.append(this.element);
+    setParent(parent) {
+        this.parent = parent;
     }
 
     render() {

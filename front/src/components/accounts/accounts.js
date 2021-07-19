@@ -3,6 +3,7 @@ class Accounts {
         this.accountsUsers = [];
         this.accountsUsers.push(new User("login", "12345", "Petrov", "Petr"));
         this.accountsUsers.push(new User("admin", "admin", "Ivanov", "Ivan"));
+        this.accountsUsers.push(new User("roll", "12345", "Pop", "It"));
     }
 
     toString(login) {

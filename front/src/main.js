@@ -35,20 +35,25 @@ class App {
         let place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
         let content = new Component("div", " ", "content");
+        const form = document.forms["form-authentication"];
+        let visitedWorkspace = [];
 
         btnAuthentication.addEventListener('click', function () {
-            let form = document.querySelector('.form-authentication');
-
-            let login = form.elements.login;
-            let password = form.elements.password;
+            const login = form.elements.login;
+            const password = form.elements.password;
             if (userAccount.toEqual(login.value, password.value)) {
+                if (document.querySelector(".content")) {
+                    document.querySelector(".content").innerHTML = "";
+                }
                 let fullName = userAccount.toString(login.value);
-                Animator.hide(form, 400);
-                let cardInformation = new CardInformation(login.value, fullName);
+                Animator.hide(form, 0);
+                const cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element)
                 app.append(content.element);
-                place.checkWorkplace(store, fullName);
-
+                place.checkWorkplace(store, fullName, visitedWorkspace);
+                cardInformation.checkExitBtn();
+                Animator.show(document.querySelector(".content"), 400);
+                form.reset();
             } else {
                 alert("Wrong data")
             }

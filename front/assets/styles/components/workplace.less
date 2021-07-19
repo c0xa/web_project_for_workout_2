@@ -12,10 +12,7 @@
 
     border: 1px solid @default-grey;
     &:hover {
-            
-        background-color: @default-grey;
-
-        opacity: 0.6;
+        background-color: @default-shadow-blue;
     }
 
     &__text {
@@ -23,6 +20,26 @@
 
         top: -20px;
         left: 15px;
+    }
+
+    &[visit]:after {
+        display: inline-block;
+        content: attr(username);
+        
+        position: absolute;
+    
+        left: 0;
+        top: 0;
+
+        width: 40px;
+        height: 60px;
+
+        color: @default-black;
+        text-align: center;
+    
+        font-size: 12px;
+    
+        padding: 3px 0;
     }
 
 }

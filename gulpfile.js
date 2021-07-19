@@ -46,7 +46,17 @@ gulp.task("svgstore", function () {
 
 });
 
-	
+gulp.task("icons", function () {
+	return gulp.src("./front/icons/**")
+		.pipe(dest("./dist/icons/"))
+})
+
+
+gulp.task("image", function () {
+	return gulp.src("./front/images/**")
+		.pipe(dest("./dist/images/"))
+})
+
 gulp.task("html", function () {
 	return gulp
 		.src("./front/index.html")
@@ -102,6 +112,6 @@ gulp.task("serve", function () {
 	gulp.watch("./dist/main.js").on("change", browserSync.reload);
 });
 
-gulp.task("build", series("svgstore", "less", "html", "scripts"));
+gulp.task("build", series("svgstore", "less", "html", "scripts", "image", "icons"));
 
-gulp.task("default", series(parallel("svgstore", "less", "html", "scripts"), "serve"));
+gulp.task("default", series(parallel("svgstore", "less", "html", "scripts", "image", "icons"), "serve"));
