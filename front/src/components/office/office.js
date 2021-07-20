@@ -2,12 +2,10 @@ class Office extends Component {
     constructor(countPart, countColumn, countRow) {
         super('div', "", 'office');
 
-        let office = [];
         for (let i = 0; i < countPart; i++) {
             let collumn = new CollumnOffice(i + 1, countColumn, countRow);
-            office.push(collumn.element);
+            this.element.append(collumn.element)
         }
-        office.forEach(collumn => this.element.append(collumn))
 
         this.selectedTd = null;
         return this;
@@ -39,6 +37,7 @@ class Office extends Component {
                 store.dispatch({
                     type: 'ADD',
                     payload: {
+                        action: "come",
                         workplace: target.getAttribute("id"), 
                         username: username,
                         data: d}

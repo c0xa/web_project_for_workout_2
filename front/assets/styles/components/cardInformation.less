@@ -24,12 +24,11 @@
         border-bottom: 1px solid @default-white;
     }
 
-    &__btn-exit {
-        width: 80%;
+    &__btn-exit, &__btn-leave {
+        width: 100%;
         height: 40px;
 
-        padding: 1em 2em;
-        margin: 0 auto;
+        margin: 10px auto;
 
         text-align: center;
         cursor: pointer;
@@ -37,10 +36,11 @@
         color: @default-blue;
         border: 1px solid @default-blue;
 
-        background: repeating-radial-gradient(circle, @default-shadow-white, @default-shadow-white 10px,
-        @default-shadow-blue 10px, @default-shadow-blue 20px);
+        background-color: @default-shadow-blue;
 
         border-radius: 8px;
-        transition: opacity 10s;
+        &:hover {
+            background-color: @default-shadow-white;
+        }
     }
 }

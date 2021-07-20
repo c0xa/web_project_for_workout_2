@@ -49,8 +49,9 @@ class App {
                 content.element.append(place.element, cardInformation.element)
                 app.append(content.element);
                 place.checkWorkplace(store, fullName, visitedWorkspace);
-                cardInformation.checkExitBtn();
+                cardInformation.checkBtn(store, fullName, visitedWorkspace);
                 Animator.show(document.querySelector(".content"), 400);
+
                 login.removeAttribute("error");
                 password.removeAttribute("error");
                 formAuthentication.removeAttribute("error");
