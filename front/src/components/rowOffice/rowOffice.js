@@ -4,17 +4,12 @@ class RowOffice extends Component {
         
         let worksplaces = [];
         for (let i = 0; i < countRow; i++) {
-
-            let element = document.createElement("div");
-            element.className = "row__workplace workplace";
-            element.setAttribute("id", "p" + part + "_r" + column + "_n" + (+i + 1));
-            let elementText = document.createElement("span");
-            elementText.className = "workplace__text";
-            elementText.innerText = i + 1;
+            let elements = new Component("div", "", "row__workplace workplace", [["id", "p" + part + "_r" + column + "_n" + (+i + 1)]])
+            let elementText = new Component("span", i + 1, "workplace__text");
 
             let place = new Workplace();
-            element.append(place.element, elementText)
-            worksplaces.push(element);
+            elements.element.append(place.element, elementText.element)
+            worksplaces.push(elements.element);
         }
         worksplaces.forEach(place => this.element.append(place))
         return this;

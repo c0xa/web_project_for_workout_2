@@ -29,33 +29,37 @@ class App {
         // добавления формы
         app.append(authentication.element);
 
-        let btnAuthentication = document.querySelector('.form-authentication__btn');
-
         // создание формы для офиса
-        let place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
+        const place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
         let content = new Component("div", " ", "content");
-        const form = document.forms["form-authentication"];
+        const formAuthentication = document.forms["form-authentication"];
         let visitedWorkspace = [];
-
-        btnAuthentication.addEventListener('click', function () {
-            const login = form.elements.login;
-            const password = form.elements.password;
+        formAuthentication.addEventListener('submit', evt => {
+            evt.preventDefault();
+            const login = formAuthentication.elements.login;
+            const password = formAuthentication.elements.password;
             if (userAccount.toEqual(login.value, password.value)) {
                 if (document.querySelector(".content")) {
                     document.querySelector(".content").innerHTML = "";
                 }
                 let fullName = userAccount.toString(login.value);
-                Animator.hide(form, 0);
+                Animator.hide(formAuthentication, 0);
                 const cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element)
                 app.append(content.element);
                 place.checkWorkplace(store, fullName, visitedWorkspace);
                 cardInformation.checkExitBtn();
                 Animator.show(document.querySelector(".content"), 400);
-                form.reset();
+                login.removeAttribute("error");
+                password.removeAttribute("error");
+                formAuthentication.removeAttribute("error");
+                formAuthentication.reset();
             } else {
-                alert("Wrong data")
+                formAuthentication.setAttribute("error", "Wrong password or login")
+                login.setAttribute("error", "Wrong password or login");
+                password.setAttribute("error", "Wrong password or login");
+                formAuthentication.reset();
             }
         })
 

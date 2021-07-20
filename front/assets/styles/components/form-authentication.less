@@ -1,24 +1,16 @@
 .form-authentication {
+    display: flex;
     position: absolute;
 
-    display: flex;
+    top: calc(50% - 150px);
+    left: calc(50% - 200px);
 
     flex-direction: column;
-
-    left: 50%;
-    top: 0;
 
     width: 300px;
     height: 200px;
 
-    margin: 20% auto;
     padding: 40px;
-
-    -webkit-transform: translate(-200px, -150px);
-    -moz-transform: translate(-200px, -150px);
-    -ms-transform: translate(-200px, -150px);
-    -o-transform: translate(-200px, -150px);
-    transform: translate(-200px, -150px);
 
     border: 1px solid @default-white;
     box-shadow: 0 2px 14px @default-grey;
@@ -36,6 +28,8 @@
 
         text-align: center;
         line-height: 40px;
+
+        box-sizing: content-box;
     }
 
     &__btn {
@@ -49,8 +43,7 @@
 
         color: @default-white;
 
-        background: repeating-radial-gradient(circle, @default-shadow-white, @default-shadow-white 10px,
-        @default-shadow-blue 10px, @default-shadow-blue 20px);
+        background-color: @default-shadow-blue;
 
         border: 2px solid @default-white;
         border-radius: 8px;
@@ -61,5 +54,4 @@
         }
 
     }
-
 }

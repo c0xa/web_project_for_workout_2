@@ -1,8 +1,7 @@
 .cardInformation {
-    position: relative;
+    display: flex;
 
-    top: 0;
-    right: 0;
+    flex-direction: column;
 
     width: 200px;
     height: 400px;
@@ -26,17 +25,13 @@
     }
 
     &__btn-exit {
-        position: absolute;
-
-        top: 80%;
-        left: 15px;
-
         width: 80%;
         height: 40px;
 
         padding: 1em 2em;
         margin: 0 auto;
 
+        text-align: center;
         cursor: pointer;
 
         color: @default-blue;

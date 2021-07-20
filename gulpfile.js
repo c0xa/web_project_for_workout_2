@@ -88,7 +88,6 @@ gulp.task("scripts", function() {
 		'./front/src/components/formAuthentication/formAuthentication.js',
 		'./front/src/modules/animator/animator.js',
 		'./front/src/modules/event/event.js',
-		'./front/src/modules/input/input.js',
 		'./front/src/main.js',
        
 	]) 

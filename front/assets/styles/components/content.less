@@ -1,21 +1,53 @@
 .content {
-    position: relative;
-
     display: flex;
+    position: absolute;
+
+    top: calc(50% - 250px);
+    left: calc(50% - 410px);
 
     flex-direction: row;
 
-    top: 0;
-    left: 0;
-
     width: 800px;
-    height: 400px;
+    height: 450px;
 
-    margin: 100px auto;
     padding: 20px;
 
     border-radius: 20px;
     box-shadow: 0 2px 14px @default-grey;
+}
 
-    // background-color: @default-white;
+@media screen and (max-width: 900px) {
+    body {
+        background: none;
+    }
+    .content {
+        // display: flex;
+        // flex-direction: column;
+
+        // width: 500px;
+        // height: 500px;
+
+        top: 0;
+        left: 0;
+    }
+
+    // .office {
+    //     width: 550px;
+    //     height: 380px;
+
+    //     margin: 0;
+    //     padding: 10px;
+    // }
+
+    // .cardInformation {
+    //     display: flex;
+
+    //     flex-direction: row;
+
+    //     width: 550px;
+    //     height: 150px;
+
+    //     padding: 20px 0;
+    //     margin: 0;
+    // }
 }
