@@ -79,7 +79,9 @@ class App {
     /** Приложение завершило загрузку */
     async onLoad() {
         // Перематываем страницу вверх, если браузер установил прокрутку
-        window.scrollTo(0, 0)
+        if (document.documentElement.clientWidth <= 600) {
+            window.scrollTo(100, 100)
+        }
         // Анимация исчезновения экрана загрузки    
         await Animator.hide(document.querySelector('.page-loader'), 300);
     }
