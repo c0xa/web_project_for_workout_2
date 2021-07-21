@@ -17,7 +17,7 @@ class App {
         // Регистрация обработчика событий скрола страницы
         const store = createStore(reducer);
 
-        let userAccount = new Accounts();
+        const userAccount = new Accounts();
 
         store.subscribe((state) => console.log(state));
 
@@ -32,11 +32,12 @@ class App {
         // создание формы для офиса
         const place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
-        let content = new Component("div", " ", "content");
+        const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
         let visitedWorkspace = [];
         formAuthentication.addEventListener('submit', evt => {
             evt.preventDefault();
+            // this.deserializeData(visitedWorkspace)  TODO 
             const login = formAuthentication.elements.login;
             const password = formAuthentication.elements.password;
             if (userAccount.toEqual(login.value, password.value)) {
@@ -74,6 +75,12 @@ class App {
     /** Регистрация событий приложения */
     async registerEvents() {
         Events.on(Events.AppLoaded, this.onLoad)
+    }
+
+    /** Регистрация событий приложения */
+    async deserializeData(visitedWorkspace) {
+        const deserialize = new Deserialize();
+        visitedWorkspace = deserialize.deserializeWorkspace(visitedWorkspace)
     }
 
     /** Приложение завершило загрузку */

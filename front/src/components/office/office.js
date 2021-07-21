@@ -12,19 +12,23 @@ class Office extends Component {
     }
 
     checkWorkplace(store, username, visitedWorkspace) {
-        let office = document.querySelector('.office');
+        const office = document.querySelector('.office');
 
         office.onclick = function(event) {
-            let target = event.target;
+            const target = event.target;
+            // const serialize = new Serialize(); TODO 
             if (target.classList.contains("workplace")) {
                 let index = 0;
-                visitedWorkspace.forEach(element => {   
-                    if (element.getAttribute("username") === username) {
-                        this.selectedTd = element;
-                        visitedWorkspace.splice(index, 1);
-                    }
-                    index++;
-                })
+                if (visitedWorkspace.length > 1) {
+                    visitedWorkspace.forEach(element => {   
+                        if (element.getAttribute("username") === username) {
+                            this.selectedTd = element;
+                            visitedWorkspace.splice(index, 1);
+                        }
+                        index++;
+                    })
+                }
+
                 if (this.selectedTd && this.selectedTd.hasAttribute("visit") && this.selectedTd.getAttribute("username") === username) {
                     this.selectedTd.removeAttribute("visit");
                     this.selectedTd.removeAttribute("username");
@@ -34,14 +38,15 @@ class Office extends Component {
                 target.setAttribute("username", username);
                 visitedWorkspace.push(target);
                 let d = new Date();
-                store.dispatch({
-                    type: 'ADD',
-                    payload: {
-                        action: "come",
-                        workplace: target.getAttribute("id"), 
-                        username: username,
-                        data: d}
-                });
+                // serialize.serializeWorkspace(visitedWorkspace);  TODO 
+                // store.dispatch({
+                //     type: 'ADD',
+                //     payload: {
+                //         action: "come",
+                //         workplace: target.getAttribute("id"), 
+                //         username: username,
+                //         data: d}
+                // });
                 
             }
         };

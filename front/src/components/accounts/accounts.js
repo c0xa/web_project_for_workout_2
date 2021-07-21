@@ -1,9 +1,27 @@
 class Accounts {
     constructor() {
         this.accountsUsers = [];
-        this.accountsUsers.push(new User("login", "12345", "Petrov", "Petr"));
-        this.accountsUsers.push(new User("admin", "admin", "Ivanov", "Ivan"));
-        this.accountsUsers.push(new User("roll", "12345", "Pop", "It"));
+        this.deserialize();
+        if (this.accountsUsers.length === 0) {
+            this.accountsUsers.push(new User("login", "12345", "Petrov", "Petr"));
+            this.accountsUsers.push(new User("admin", "admin", "Ivanov", "Ivan"));
+            this.accountsUsers.push(new User("roll", "12345", "Pop", "It"));
+            this.serialize();
+        }
+    }
+
+    async serialize() {
+        const serialize = new Serialize();
+        serialize.serializePerson(this.accountsUsers)
+    }
+
+    async deserialize() {
+        const deserialize = new Deserialize();
+        this.accountsUsers = deserialize.deserializePerson(this.accountsUsers)
+    }
+
+    getAccountsUsers() {
+        return this.accountsUsers;
     }
 
     toString(login) {

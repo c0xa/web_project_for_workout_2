@@ -78,6 +78,8 @@ gulp.task("scripts", function() {
 	return src([
 		'./front/src/store/store.js',
         './front/src/components/component/component.js',
+        './front/src/modules/deserialize/deserialize.js',
+        './front/src/modules/serialize/serialize.js',
         './front/src/components/office/office.js',
 		'./front/src/components/row_office/row_office.js',
 		'./front/src/components/column_office/column_office.js',
