@@ -8,7 +8,7 @@
 
     box-shadow: 0 2px 14px @default-grey;
 
-    color: @default-blue;
+    color: @default-dark-grey;
 
     padding: 20px;
 
@@ -32,15 +32,21 @@
 
         text-align: center;
         cursor: pointer;
+        color: @default-white;
 
-        color: @default-blue;
-        border: 1px solid @default-blue;
+        background-color: @default-dark-grey;
+        text-shadow: 0 1px 2px @default-shadow-light-black;
 
-        background-color: @default-shadow-blue;
+        border: 2px solid @default-grey;
+        // color: @default-blue;
+        // border: 1px solid @default-blue;
+
+        // background-color: @default-shadow-blue;
 
         border-radius: 8px;
+
         &:hover {
-            background-color: @default-shadow-white;
+            box-shadow: 1px 3px @default-shadow-light-black;
         }
     }
 }

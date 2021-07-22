@@ -53,15 +53,10 @@ class App {
                 cardInformation.checkBtn(store, fullName, visitedWorkspace);
                 Animator.show(document.querySelector(".content"), 400);
 
-                login.removeAttribute("error");
-                password.removeAttribute("error");
-                formAuthentication.removeAttribute("error");
+                authentication.hiddenErrorDomElement();
                 formAuthentication.reset();
             } else {
-                formAuthentication.setAttribute("error", "Wrong password or login")
-                login.setAttribute("error", "Wrong password or login");
-                password.setAttribute("error", "Wrong password or login");
-                formAuthentication.reset();
+                authentication.showErrorDomElement();
             }
         })
 

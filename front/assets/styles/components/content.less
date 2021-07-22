@@ -100,15 +100,6 @@
 }
 
 @media screen and (max-width: 600px) and (max-height: 600px) { 
-    #app {
-        width: 600px;
-        height: 600px;
-    }
-
-    body {
-        background: none;
-    }
-
     .content {
         width: 600px;
         height: 600px;
@@ -123,22 +114,44 @@
     }
 }
 
-@media screen and (max-width: 600px) {
-    #app {
-        width: 600px;
-        height: 600px;
+@media screen and (max-width: 400px) {
+     #app {
+        width: 400px;
+        height: 300px;
         overflow-y: auto;
         overflow-x: auto;
     }
 
-   .form-authentication {
-        top: 150px;
-        left: 100px;
-    } 
+    .form-authentication { 
+        overflow: auto;
+        top: 10px;
+        left: 10px;
 
-    body {
-        background: none;
+        margin: auto;
     }
+}
+
+@media screen and (max-height: 300px) {
+    #app {
+       width: 400px;
+       height: 300px;
+       overflow-y: auto;
+       overflow-x: auto;
+   }
+
+   .form-authentication { 
+       overflow: auto;
+       top: 10px;
+       left: 10px;
+
+       margin: auto;
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .form-authentication {
+        overflow: hidden;
+    } 
 
     .content {
         width: 600px;
@@ -156,21 +169,9 @@
 
 
 @media screen and (max-height: 600px) {
-    #app {
-        width: 600px;
-        height: 600px;
-        overflow-y: auto;
-        overflow-x: auto;
-    }
-
    .form-authentication {
-        top: 150px;
-        left: calc(50% - 200px);
+        overflow: hidden;
     } 
-
-    body {
-        background: none;
-    }
 
     .content {
         width: 600px;
