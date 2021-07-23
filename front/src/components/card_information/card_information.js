@@ -55,34 +55,40 @@ class CardInformation extends Component {
         const btnLeaveWorkplace = formOption.elements.btnLeaveWorkplace;
         const btnAnalyticaData = formOption.elements.btnAnalyticaData;;
         const btnDataIll = formOption.elements.btnDataIll;
+        const analytic = document.querySelector(".analytic");
 
         //обработка разголинивания
         btnAnalyticaData.addEventListener('click', function () {
             window.scrollTo(100, 0);
             const app = document.getElementById('app');
-            if (document.querySelector(".analytic")) {
-                document.querySelector(".analytic").innerHTML = "";
-                return;
-            }
-            const analytic = new Component("div", " ", "analytic");
+            const imageClose = new Component("input", "", "analytic__btn-close", [["type", "button"], ["name", "btnClose"]])
             const table = new Component("table", " ", "analytic__table-analytic table-analytic");
             const caption = new Component("caption", "Analytic", "table-analytic__caption");
             const tr = new Component("tr", "", "table-analytic__tr");
-            tr.element.append(new Component("td", "Data", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
+            tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
             table.element.append(caption.element, tr.element)
             userAccount.analyticTable(username, table)
-            analytic.element.append(table.element);
+            analytic.append(imageClose.element, table.element)
+            app.append(analytic);
+            Animator.show(analytic, 200);
 
-            app.append(analytic.element);
+            //обработка кнопки закрытия
+            const btnCloseAnalytic = document.querySelector(".analytic__btn-close")
+            btnCloseAnalytic.addEventListener('click', function () {
+
+                Animator.hide(analytic, 0);
+                analytic.innerHTML = "";
+        });
+
         })
 
         //обработка разголинивания
         btnLogOut.addEventListener('click', function () {
             //делаем доступной форму офиса
             document.querySelector('.office').removeAttribute("availability");
-            if (document.querySelector(".analytic")) {
-                document.querySelector(".analytic").innerHTML = "";
-            }
+    
+            analytic.innerHTML = "";
+            Animator.hide(analytic, 0);
             Animator.show(FormAuthentication, 400);
             Animator.hide(content, 0);
         })

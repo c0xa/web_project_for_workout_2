@@ -26,11 +26,9 @@ class User {
     checkRisk(table) {
         this.visitedWorkspace.forEach(part => {
             const tr = new Component("tr", "", "table-analytic__tr");
-            console.log(part)
-            console.log(part.workspace)
 
-            console.log(part.action)
-            tr.element.append(new Component("td", part.data, "table-analytic__td").element,
+            tr.element.append(new Component("td", part.date, "table-analytic__td").element,
+                new Component("td", part.time, "table-analytic__td").element, 
                 new Component("td", part.workspace, "table-analytic__td").element, 
                 new Component("td", part.action, "table-analytic__td").element)
             table.element.append(tr.element)

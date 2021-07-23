@@ -47,7 +47,7 @@ class Accounts {
         this.accountsUsers.forEach(element => {
             if (username === element.getFullName()) {
                 element.setWorkplace(workplace);
-                element.addVisitedWorkspace(new Date().toString(), element.getWorkplace(), "come");
+                element.addVisitedWorkspace(new Date(), element.getWorkplace(), "come");
             }
         });
         this.serialize();
@@ -74,7 +74,7 @@ class Accounts {
                 workplace.removeAttribute("visit");
                 workplace.removeAttribute("username");
                 document.querySelector('.office').removeAttribute("availability");
-                element.addVisitedWorkspace(new Date().toString(), element.getWorkplace(), "leave");
+                element.addVisitedWorkspace(new Date(), element.getWorkplace(), "leave");
                 element.setWorkplace("");
             }
         });

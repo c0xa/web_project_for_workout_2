@@ -34,6 +34,7 @@ class App {
 
         const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
+        const analytic = new Component("div", " ", "analytic");
         formAuthentication.addEventListener('submit', evt => {
             evt.preventDefault();
             const login = formAuthentication.elements.login;
@@ -45,13 +46,13 @@ class App {
                 let fullName = userAccount.toString(login.value);
                 Animator.hide(formAuthentication, 0);
                 const cardInformation = new CardInformation(login.value, fullName);
-                content.element.append(place.element, cardInformation.element)
+                content.element.append(place.element, cardInformation.element, analytic.element)
                 app.append(content.element);
                 userAccount.checkAvilableOffice(fullName)
                 place.checkWorkplace(store, fullName, userAccount);
                 cardInformation.checkBtn(store, fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
-
+                Animator.hide(document.querySelector(".analytic"), 0);
                 authentication.hiddenErrorDomElement();
                 formAuthentication.reset();
             } else {
