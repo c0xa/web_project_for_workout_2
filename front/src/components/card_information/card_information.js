@@ -61,6 +61,7 @@ class CardInformation extends Component {
         btnAnalyticaData.addEventListener('click', function () {
             window.scrollTo(100, 0);
             const app = document.getElementById('app');
+            analytic.innerHTML = "";
             const imageClose = new Component("input", "", "analytic__btn-close", [["type", "button"], ["name", "btnClose"]])
             const table = new Component("table", " ", "analytic__table-analytic table-analytic");
             const caption = new Component("caption", "Analytic", "table-analytic__caption");
@@ -76,8 +77,7 @@ class CardInformation extends Component {
             const btnCloseAnalytic = document.querySelector(".analytic__btn-close")
             btnCloseAnalytic.addEventListener('click', function () {
 
-                Animator.hide(analytic, 0);
-                analytic.innerHTML = "";
+                Animator.hide(analytic, 200);
         });
 
         })
