@@ -8,8 +8,4 @@ class Serialize {
     serializePerson(person) {
         window.localStorage.setItem('user', JSON.stringify(person));
     }
-
-    serializeWorkspace(visitedWorkspace) {
-        window.localStorage.setItem('visitedWorkspace', JSON.stringify(visitedWorkspace));
-    }
 }

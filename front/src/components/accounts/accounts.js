@@ -28,7 +28,7 @@ class Accounts {
         let userName = "";
         this.accountsUsers.forEach(element => {
             if (login === element.getLogin())
-                userName = element.getFirstName() + " " + element.getSecondName();
+                userName = element.getFullName();
         });
         return userName;
     }
@@ -41,5 +41,63 @@ class Accounts {
                 flag = true;
         });
         return flag;
+    }
+
+    addedWorkplace(username, workplace) {
+        this.accountsUsers.forEach(element => {
+            if (username === element.getFullName()) {
+                element.setWorkplace(workplace);
+                element.addVisitedWorkspace(new Date().toString(), element.getWorkplace(), "come");
+            }
+        });
+        this.serialize();
+    }
+
+
+    checkAvilableOffice(username) {
+        this.accountsUsers.forEach(element => {
+            if (username === element.getFullName() && element.getWorkplace() !== "" || element.getIll()) {
+                document.querySelector('.office').setAttribute("availability", true);
+            }
+            if (element.getWorkplace() !== "") {
+                const workplace = document.getElementById(element.getWorkplace());
+                workplace.setAttribute("visit", true);
+                workplace.setAttribute("username",  element.getFullName());
+            }
+        });
+    }
+
+    checkBtnLeave(username) {
+        this.accountsUsers.forEach(element => {
+            if (username === element.getFullName()) {
+                const workplace = document.getElementById(element.getWorkplace())
+                workplace.removeAttribute("visit");
+                workplace.removeAttribute("username");
+                document.querySelector('.office').removeAttribute("availability");
+                element.addVisitedWorkspace(new Date().toString(), element.getWorkplace(), "leave");
+                element.setWorkplace("");
+            }
+        });
+        this.serialize();
+    }
+
+    checkBtnIll(username, dataIll) {
+        this.accountsUsers.forEach(element => {
+            if (username === element.getFullName()) {
+                element.setIll(dataIll);
+                document.querySelector('.office').setAttribute("availability", true);
+                if (element.getWorkplace() !== "")
+                    this.checkBtnLeave(username);
+            }
+        });
+        this.serialize();
+    }
+
+    analyticTable(username, table) {
+        this.accountsUsers.forEach(element => {
+            if (username === element.getFullName()) {
+                element.checkRisk(table)
+            }
+        })
     }
 }

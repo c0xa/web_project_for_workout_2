@@ -17,7 +17,6 @@ class FormAuthentication extends Component {
     }
 
     showErrorDomElement() {
-
         Animator.show(document.querySelector('.form-authentication__block-error'), 300);
     }
 

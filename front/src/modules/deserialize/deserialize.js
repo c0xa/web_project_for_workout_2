@@ -9,21 +9,9 @@ class Deserialize {
         const accounts = JSON.parse(window.localStorage.getItem('user'));
         if (accounts) {
             accounts.forEach(person => {
-                accountsUsers.push(new User(person.login, person.password, person.firstName, person.secondName))
+                accountsUsers.push(new User(person.login, person.password, person.firstName, person.secondName, person.workplace,  person.ill, person.dataIll, person.risk, person.visitedWorkspace))
             });
         }
         return accountsUsers;
-    }
-
-    deserializeWorkspace(visitedWorkspace) {
-    console.log("deserizlize")
-    const workspaces = JSON.parse(window.localStorage.getItem('visitedWorkspace'));
-    if (workspaces) {
-        workspaces.forEach(worksplace => {
-            visitedWorkspace.push((worksplace.workspace));
-        });
-    }
-    console.log(visitedWorkspace)
-    return visitedWorkspace;
     }
 }

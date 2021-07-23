@@ -11,43 +11,16 @@ class Office extends Component {
         return this;
     }
 
-    checkWorkplace(store, username, visitedWorkspace) {
+    checkWorkplace(store, username, userAccount) {
         const office = document.querySelector('.office');
 
         office.onclick = function(event) {
             const target = event.target;
-            // const serialize = new Serialize(); TODO 
-            if (target.classList.contains("workplace")) {
-                let index = 0;
-                if (visitedWorkspace.length > 1) {
-                    visitedWorkspace.forEach(element => {   
-                        if (element.getAttribute("username") === username) {
-                            this.selectedTd = element;
-                            visitedWorkspace.splice(index, 1);
-                        }
-                        index++;
-                    })
-                }
-
-                if (this.selectedTd && this.selectedTd.hasAttribute("visit") && this.selectedTd.getAttribute("username") === username) {
-                    this.selectedTd.removeAttribute("visit");
-                    this.selectedTd.removeAttribute("username");
-                }
-                this.selectedTd = target;
+            if (target.classList.contains("workplace")) {;
+                office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
                 target.setAttribute("username", username);
-                visitedWorkspace.push(target);
-                let d = new Date();
-                // serialize.serializeWorkspace(visitedWorkspace);  TODO 
-                // store.dispatch({
-                //     type: 'ADD',
-                //     payload: {
-                //         action: "come",
-                //         workplace: target.getAttribute("id"), 
-                //         username: username,
-                //         data: d}
-                // });
-                
+                userAccount.addedWorkplace(username, target.getAttribute("id"));
             }
         };
     }

@@ -34,10 +34,8 @@ class App {
 
         const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
-        let visitedWorkspace = [];
         formAuthentication.addEventListener('submit', evt => {
             evt.preventDefault();
-            // this.deserializeData(visitedWorkspace)  TODO 
             const login = formAuthentication.elements.login;
             const password = formAuthentication.elements.password;
             if (userAccount.toEqual(login.value, password.value)) {
@@ -49,8 +47,9 @@ class App {
                 const cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element)
                 app.append(content.element);
-                place.checkWorkplace(store, fullName, visitedWorkspace);
-                cardInformation.checkBtn(store, fullName, visitedWorkspace);
+                userAccount.checkAvilableOffice(fullName)
+                place.checkWorkplace(store, fullName, userAccount);
+                cardInformation.checkBtn(store, fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
 
                 authentication.hiddenErrorDomElement();
@@ -70,12 +69,6 @@ class App {
     /** Регистрация событий приложения */
     async registerEvents() {
         Events.on(Events.AppLoaded, this.onLoad)
-    }
-
-    /** Регистрация событий приложения */
-    async deserializeData(visitedWorkspace) {
-        const deserialize = new Deserialize();
-        visitedWorkspace = deserialize.deserializeWorkspace(visitedWorkspace)
     }
 
     /** Приложение завершило загрузку */
