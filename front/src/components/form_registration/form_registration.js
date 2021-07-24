@@ -17,10 +17,12 @@ class FormRegistration extends Component {
         ["name", "secondName"]])
 
         const divError = new Component("div", "This login exists", "form-registration__block-error", [["hidden", "true"]]);
+        
+        const divAdd = new Component("div", "Added", "form-registration__block-add", [["hidden", "true"]]);
 
         const btn = new Component("button", "Add", "form-registration__btn", [["type", "button"], ["placeholder", "enter"], ["name", "btnEnter"]])
 
-        this.element.append(title.element, inputLogin.element, inputPassword.element, divError.element, inputFirstName.element, inputSecondName.element, btn.element);
+        this.element.append(title.element, inputLogin.element, inputPassword.element, divError.element, divAdd.element, inputFirstName.element, inputSecondName.element, btn.element);
         return this;
     }
 
@@ -32,12 +34,16 @@ class FormRegistration extends Component {
         const secondName = formRegistration.elements.secondName;
         const btn = formRegistration.elements.btnEnter;
         const blockError = document.querySelector(".form-registration__block-error")
+        const blockAdd = document.querySelector(".form-registration__block-add")
         
         btn.addEventListener('click', function () {
             if (accountsUsers.toCheckLogin(login.value)) {
                 blockError.setAttribute("hidden", true);
+                blockAdd.removeAttribute("hidden")
                 accountsUsers.addUser(login.value, password.value, firstName.value, secondName.value);
+                formAuthentication.reset();
             } else {
+                blockAdd.setAttribute("hidden", true);
                 blockError.removeAttribute("hidden")
             }
         })
