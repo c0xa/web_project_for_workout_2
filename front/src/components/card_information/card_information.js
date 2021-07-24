@@ -50,7 +50,7 @@ class CardInformation extends Component {
         const btnAnalyticaData = formOption.elements.btnAnalyticaData;;
         const btnDataIll = formOption.elements.btnDataIll;
         const analytic = document.querySelector(".analytic");
-        const adminOption = document.querySelector(".adminOption");
+        const adminOption = document.querySelector(".admin-option");
 
         //обработка показа логов
         btnAnalyticaData.addEventListener('click', function () {

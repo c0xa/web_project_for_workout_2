@@ -1,6 +1,8 @@
 class FormRegistration extends Component {
     constructor() {
-        super('form', "", "form-registration", [["name", "form-registration"]]);
+        super('form', "", "admin-option__form-registration form-registration", [["name", "form-registration"]]);
+
+        const title = new Component("span", "Registration", "form-registration__title admin-option__title")
 
         const inputLogin = new Component("input", "", "form-registration__input-login", [["type", "text"], ["placeholder", "login"],
                                                                         ["name", "login"], ["minlength", "4"]])
@@ -14,11 +16,11 @@ class FormRegistration extends Component {
         const inputSecondName = new Component("input", " ", "form-registration__input-second-name", [["type", "text"], ["placeholder", "second name"],
         ["name", "secondName"]])
 
-        const divError = new Component("div", "Wrong password or login", "form-authentication__block-error", [["hidden", "true"]]);
+        const divError = new Component("div", "This login exists", "form-registration__block-error", [["hidden", "true"]]);
 
         const btn = new Component("button", "Add", "form-registration__btn", [["type", "button"], ["placeholder", "enter"], ["name", "btnEnter"]])
 
-        this.element.append(inputLogin.element, inputPassword.element, divError.element, inputFirstName.element, inputSecondName.element, btn.element);
+        this.element.append(title.element, inputLogin.element, inputPassword.element, divError.element, inputFirstName.element, inputSecondName.element, btn.element);
         return this;
     }
 
@@ -29,10 +31,14 @@ class FormRegistration extends Component {
         const firstName = formRegistration.elements.firstName;
         const secondName = formRegistration.elements.secondName;
         const btn = formRegistration.elements.btnEnter;
+        const blockError = document.querySelector(".form-registration__block-error")
         
         btn.addEventListener('click', function () {
             if (accountsUsers.toCheckLogin(login.value)) {
+                blockError.setAttribute("hidden", true);
                 accountsUsers.addUser(login.value, password.value, firstName.value, secondName.value);
+            } else {
+                blockError.removeAttribute("hidden")
             }
         })
     }

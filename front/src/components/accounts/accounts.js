@@ -51,7 +51,7 @@ class Accounts {
         tr.element.append(new Component("td", "login", "table-analytic__td").element, new Component("td", "full name", "table-analytic__td").element, new Component("td", "ill?", "table-analytic__td").element, new Component("td", "risk?", "table-analytic__td").element, new Component("td", "data ill", "table-analytic__td").element)
         table.element.append(caption.element, tr.element);
         user.checkIll(table);
-        document.querySelector(".all-analytic").append(table.element);
+        document.querySelector(".risk-analytic").append(table.element);
     }
 
     clearData(user) {
@@ -82,12 +82,12 @@ class Accounts {
         }
         el.querySelector(".item-risk-not-infected").addEventListener("click", el => {
             user.setRisk(false);
-            document.querySelector('.office').setAttribute("availability", true);
+            document.querySelector('.office').removeAttribute("availability");
             this.serialize();
         })
 
         el.querySelector(".item-risk-infected").addEventListener("click", el => {
-            document.querySelector('.office').setAttribute("availability", false);
+            document.querySelector('.office').setAttribute("availability", true);
             user.setRisk(true);
             this.serialize();
         })
@@ -95,8 +95,16 @@ class Accounts {
 
     privilegeOption() {
         if (this.privilegeOptionFlag) {
-            const adminOption = document.querySelector(".adminOption");
-
+            const adminOption = document.querySelector(".admin-option");
+            adminOption.innerHTML = "";
+            //icons update
+            const update = new Component("input", "", "admin-option__btn-update", [["type", "button"], ["name", "update"]]);
+            adminOption.append(update.element);
+            document.querySelector(".admin-option__btn-update").addEventListener('click', element => {
+                this.privilegeOption();
+                console.log("update")
+            });
+           
             //add user
             const formRegistration = new FormRegistration()
             adminOption.append(formRegistration.element)
@@ -104,26 +112,35 @@ class Accounts {
             Animator.show(adminOption, 400);
 
             //check all analytic
-            const analytic = new Component("div", "", "all-analytic");
+            const titleAnalytic = new Component("span", "Visits", "all-analytic__title admin-option__title")
+            const analytic = new Component("div", "", "admin-option__all-analytic all-analytic");
             adminOption.append(analytic.element);
+            document.querySelector(".all-analytic").append(titleAnalytic.element);
             this.accountsUsers.forEach(element => { this.allAnalytic(element) })
 
             //check risk
-            const risk = new Component("div", "", "risk-analytic");
+            const titleRisk = new Component("span", "Risk and ill corona", "risk-analytic__title admin-option__title")
+            const risk = new Component("div", "", "admin-option__risk-analytic risk-analytic");
             adminOption.append(risk.element);
+            document.querySelector(".risk-analytic").append(titleRisk.element);
             this.accountsUsers.forEach(element => { this.checkIll(element) })
 
              //clear VisitedWorkspace
-            const clearData = new Component("input", "Clear data", "clear-data", [["type", "button"], ["placeholder", "Clear data"],
+            const titleClearBlock = new Component("span", "Clear data visits", "admin-option__title admin-option__title")
+            const blockClearBlock = new Component("div", "", "admin-option__clear-data-block");
+            const clearData = new Component("input", "Clear data", "admin-option__clear-data clear-data", [["type", "button"], ["placeholder", "Clear data"],
             ["name", "clear data"]]);
-            adminOption.append(clearData.element);
+            adminOption.append(blockClearBlock.element);
+            document.querySelector(".admin-option__clear-data-block").append(titleClearBlock.element, clearData.element);
             document.querySelector(".clear-data").addEventListener('click', element => {
                 this.accountsUsers.forEach(element => { this.clearData(element) })
             })
 
             //table risk yes no
-            const switchRisk = new Component("div", "", "switch-risk");
+            const switchTitle = new Component("span", "Switch risk", "switch-risk__title admin-option__title")
+            const switchRisk = new Component("div", "", "admin-option__switch-risk switch-risk");
             adminOption.append(switchRisk.element);
+            document.querySelector(".switch-risk").append(switchTitle.element);
             this.accountsUsers.forEach(element => { this.switchRisk(element) })
 
             let collection = adminOption.children;

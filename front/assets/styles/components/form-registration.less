@@ -1,0 +1,64 @@
+.form-registration {
+    display: flex;
+
+    flex-direction: column;
+    text-align: center;
+
+    &__title {
+        color: @default-theme-secondary;
+    }
+
+    &__input-login, &__input-password, &__input-first-name, &__input-second-name {
+        width: 100%;
+        height: 40px;
+
+        border: 1px solid @default-grey;
+        border-radius: 8px;
+        box-shadow: 0 2px 14px @default-grey;
+        color: @default-theme-primary;
+
+        background-color: @default-theme-secondary;
+
+        margin-top: 20px;
+
+        text-align: center;
+        line-height: 40px;
+
+        box-sizing: content-box;
+
+    }
+
+    &__block-error {
+        position: absolute;
+
+        top: 115px;
+        left: 0;
+
+        width: 100%;
+        height: 40px;
+
+        text-align: center;
+        
+        color: @default-theme-secondary;
+        text-shadow: 0 1px 2px @default-shadow-light-black;
+    }
+
+    &__btn {
+
+        width: 50%;
+        height: 80px;
+
+        padding: 1em 2em;
+        margin: 40px auto;
+
+        cursor: pointer;
+
+        color: @default-theme-primary;
+
+        background-color: @default-theme-secondary; 
+        text-shadow: 0 1px 2px @default-shadow-light-black;
+
+        border: 2px solid @default-grey;
+        border-radius: 8px;
+    }
+}

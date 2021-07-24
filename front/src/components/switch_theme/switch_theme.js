@@ -10,19 +10,32 @@ class SwitchTheme extends Component {
 
         this.element.append(lightTheme.element, darkTheme.element);
         this.lightTheme();
+
+        this.setStyleVar = (name, value) => document.documentElement.style.setProperty(`--${name}`, value)
+        this.getStyleVar = name => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`)
+
         return this;
     }
 
+    setStyleVar(name, value) {
+        document.documentElement.style.setProperty(`--${name}`, value)
+    }
+
+    getStyleVar(name) {
+        getComputedStyle(document.documentElement).getPropertyValue(`--${name}`)
+    }
+
+
     lightTheme() {
-        document.documentElement.style.setProperty('--main-hue', 290);
-        document.documentElement.style.setProperty('--main-effect', "90%");
-        document.documentElement.style.setProperty('--main-color', "30%");
+        this.setStyleVar('main-hue', 290);
+        this.setStyleVar('main-effect', "90%");
+        this.setStyleVar('main-color', "30%");
     }
 
     darkTheme() {
-        document.documentElement.style.setProperty('--main-hue', 10);
-        document.documentElement.style.setProperty('--main-effect', "25%");
-        document.documentElement.style.setProperty('--main-color', "80%");
+        this.setStyleVar('main-hue', 10);
+        this.setStyleVar('main-effect', "25%");
+        this.setStyleVar('main-color', "80%");
     }
 
 
@@ -30,13 +43,18 @@ class SwitchTheme extends Component {
         const formTheme = document.forms["form-theme"];
         const lightTheme = formTheme.elements.light;
         const darkTheme = formTheme.elements.dark;
+        lightTheme.setAttribute("availability", true);
         
         lightTheme.addEventListener('click',(e)=>{
             this.lightTheme();
+            lightTheme.setAttribute("availability", true);
+            darkTheme.removeAttribute("availability");
         })
         
         darkTheme.addEventListener('click',(e)=>{
             this.darkTheme();
+            darkTheme.setAttribute("availability", true);
+            lightTheme.removeAttribute("availability");
         })
         
     }

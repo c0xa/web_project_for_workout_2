@@ -38,7 +38,7 @@ class App {
         const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
         const analytic = new Component("div", " ", "analytic");
-        const adminOption = new Component("div", " ", "adminOption");
+        const adminOption = new Component("div", " ", "admin-option");
         formAuthentication.addEventListener('submit', evt => {
             evt.preventDefault();
             const login = formAuthentication.elements.login;
