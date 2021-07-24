@@ -6,6 +6,6 @@ class Serialize {
      * @returns {}
      */
     serializePerson(person) {
-        window.localStorage.setItem('user', JSON.stringify(person));
+        window.localStorage.setItem('user', JSON.stringify(Array.from(person.entries())));
     }
 }

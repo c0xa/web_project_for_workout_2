@@ -1,12 +1,12 @@
 class VisitedWorkspace {
     constructor(data, workspace, action) {
+        this.fullDate = data
         this.date = this.toDate(data)
         this.time = this.toTime(data)
         this.workspace = workspace;
         this.action = action;
     }
-
-
+    
     calculateDate(date) {
         this.date = date;
         const cDay = this.date.getDate()

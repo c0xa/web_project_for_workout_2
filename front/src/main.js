@@ -38,6 +38,7 @@ class App {
         const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
         const analytic = new Component("div", " ", "analytic");
+        const adminOption = new Component("div", " ", "adminOption");
         formAuthentication.addEventListener('submit', evt => {
             evt.preventDefault();
             const login = formAuthentication.elements.login;
@@ -49,10 +50,11 @@ class App {
                 let fullName = userAccount.toString(login.value);
                 Animator.hide(formAuthentication, 0);
                 const cardInformation = new CardInformation(login.value, fullName);
-                content.element.append(place.element, cardInformation.element, analytic.element)
+                content.element.append(place.element, cardInformation.element, analytic.element, adminOption.element)
                 app.append(content.element);
                 switchTheme.checkTheme();
-                userAccount.checkAvilableOffice(fullName)
+                userAccount.checkAvilableOffice();
+                userAccount.privilegeOption();
                 place.checkWorkplace(store, fullName, userAccount);
                 cardInformation.checkBtn(store, fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);

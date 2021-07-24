@@ -50,6 +50,7 @@ class CardInformation extends Component {
         const btnAnalyticaData = formOption.elements.btnAnalyticaData;;
         const btnDataIll = formOption.elements.btnDataIll;
         const analytic = document.querySelector(".analytic");
+        const adminOption = document.querySelector(".adminOption");
 
         //обработка показа логов
         btnAnalyticaData.addEventListener('click', function () {
@@ -62,7 +63,7 @@ class CardInformation extends Component {
             const tr = new Component("tr", "", "table-analytic__tr");
             tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
             table.element.append(caption.element, tr.element)
-            userAccount.analyticTable(username, table)
+            userAccount.analyticTable(table)
             analytic.append(imageClose.element, table.element)
             app.append(analytic);
             Animator.show(analytic, 200);
@@ -82,14 +83,16 @@ class CardInformation extends Component {
             document.querySelector('.office').removeAttribute("availability");
     
             analytic.innerHTML = "";
+            adminOption.innerHTML = "";
             Animator.hide(analytic, 0);
+            Animator.hide(adminOption, 400);
             Animator.show(FormAuthentication, 400);
             Animator.hide(content, 0);
         })
 
         //обработка ухода с рабочего места
         btnLeaveWorkplace.addEventListener('click', function () {
-            userAccount.checkBtnLeave(username)
+            userAccount.checkBtnLeave()
         })
 
          //обработка отслеживания заболеваний
@@ -98,7 +101,7 @@ class CardInformation extends Component {
 
             const inputDataIll = formOption.elements.inputDataIll;
             
-            userAccount.checkBtnIll(username, inputDataIll.value)
+            userAccount.checkBtnIll(inputDataIll.value)
             console.log(inputDataIll.value)
         })
     }

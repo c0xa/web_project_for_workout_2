@@ -20,7 +20,7 @@ class Office extends Component {
                 office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
                 target.setAttribute("username", username);
-                userAccount.addedWorkplace(username, target.getAttribute("id"));
+                userAccount.addedWorkplace(target.getAttribute("id"));
             }
         };
     }
