@@ -32,8 +32,6 @@ class App {
         // создание переключения темы
         let switchTheme = new SwitchTheme()
 
-        Animator.hide(document.querySelector(".form-theme"), 0);
-
         // создание формы для офиса
         const place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
