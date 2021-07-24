@@ -8,19 +8,14 @@ class CardInformation extends Component {
         const switchTheme = new SwitchTheme()
         //создание блока для отслеживания заболеваний
 
-        let date = new Date();
-        date = date.toISOString().slice(0, 10);
-        let prevDate = date.split("-");
-        let month = parseInt(prevDate[1], 10) - 1
-        let year = parseInt(prevDate[0], 10);
-        if (month > 0 && month < 10) {
-            month = "0" + month;
-        }
-        if (month === 0) {
-            year = parseInt(prevDate[0], 10) - 1;
-            month = 12;
-        }
-        prevDate = [year, month, prevDate[2]].join("-")
+        //считаем рамки времени для выбора заболеваемости
+        const CurrentDate = new Date();
+
+        const data = new VisitedWorkspace(CurrentDate, "", "");
+
+        const date =  data.calculateDate(CurrentDate); 
+
+        const prevDate =  data.calculatePrevDate(CurrentDate);
 
         const blockInformationIll = new Component("div", "", "cardInformation__informationIll informationIll");
 
@@ -44,8 +39,6 @@ class CardInformation extends Component {
            // добавления кнопки переключения тем блока имени и кнопки опций
         this.element.append(switchTheme.element, spanUserName.element, formForOption.element);
         return this;
-        
-
     }
 
     checkBtn(store, username, userAccount) {

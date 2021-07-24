@@ -9,15 +9,22 @@ class SwitchTheme extends Component {
                                                                         ["name", "dark"]]);
 
         this.element.append(lightTheme.element, darkTheme.element);
-        this.defaultTheme();
+        this.lightTheme();
         return this;
     }
 
-    defaultTheme() {
+    lightTheme() {
         document.documentElement.style.setProperty('--main-hue', 290);
         document.documentElement.style.setProperty('--main-effect', "90%");
         document.documentElement.style.setProperty('--main-color', "30%");
     }
+
+    darkTheme() {
+        document.documentElement.style.setProperty('--main-hue', 10);
+        document.documentElement.style.setProperty('--main-effect', "25%");
+        document.documentElement.style.setProperty('--main-color', "80%");
+    }
+
 
     checkTheme() {
         const formTheme = document.forms["form-theme"];
@@ -25,15 +32,11 @@ class SwitchTheme extends Component {
         const darkTheme = formTheme.elements.dark;
         
         lightTheme.addEventListener('click',(e)=>{
-            document.documentElement.style.setProperty('--main-hue', 290);
-            document.documentElement.style.setProperty('--main-effect', "90%");
-            document.documentElement.style.setProperty('--main-color', "30%");
+            this.lightTheme();
         })
         
         darkTheme.addEventListener('click',(e)=>{
-            document.documentElement.style.setProperty('--main-hue', 10);
-            document.documentElement.style.setProperty('--main-effect', "25%");
-            document.documentElement.style.setProperty('--main-color', "80%");
+            this.darkTheme();
         })
         
     }

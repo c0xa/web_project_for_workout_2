@@ -24,80 +24,77 @@ class Accounts {
         return this.accountsUsers;
     }
 
-    toString(login) {
+    toString() {
         let userName = "";
-        this.accountsUsers.forEach(element => {
-            if (login === element.getLogin())
-                userName = element.getFullName();
-        });
+        const element = this.accountsUsers[this.index];
+        userName = element.getFullName();
         return userName;
     }
 
+    privilegeOption() {
+        //add user
+        //check risk
+        //check all analutic
+    }
+
+
     toEqual(login, password) {
         let flag = false;
+        let index = 0;
 
         this.accountsUsers.forEach(element => {
-            if (password === element.getPassword() && login === element.getLogin())
+            if (password === element.getPassword() && login === element.getLogin()) {
                 flag = true;
+                this.index = index;
+            }
+            index++;
         });
         return flag;
     }
 
-    addedWorkplace(username, workplace) {
-        this.accountsUsers.forEach(element => {
-            if (username === element.getFullName()) {
-                element.setWorkplace(workplace);
-                element.addVisitedWorkspace(new Date(), element.getWorkplace(), "come");
-            }
-        });
+    addedWorkplace(workplace) {
+        const element = this.accountsUsers[this.index];
+        element.setWorkplace(workplace);
+        element.addVisitedWorkspace(new Date(), element.getWorkplace(), "come");
         this.serialize();
     }
 
 
-    checkAvilableOffice(username) {
-        this.accountsUsers.forEach(element => {
-            if (username === element.getFullName() && element.getWorkplace() !== "" || element.getIll()) {
-                document.querySelector('.office').setAttribute("availability", true);
-            }
-            if (element.getWorkplace() !== "") {
-                const workplace = document.getElementById(element.getWorkplace());
-                workplace.setAttribute("visit", true);
-                workplace.setAttribute("username",  element.getFullName());
-            }
-        });
+    checkAvilableOffice() {
+        const element = this.accountsUsers[this.index];
+        if (element.getWorkplace() !== "" || element.getIll()) {
+            document.querySelector('.office').setAttribute("availability", true);
+        }
+        if (element.getWorkplace() !== "") {
+            const workplace = document.getElementById(element.getWorkplace());
+            workplace.setAttribute("visit", true);
+            workplace.setAttribute("username",  element.getFullName());
+        }
     }
 
-    checkBtnLeave(username) {
-        this.accountsUsers.forEach(element => {
-            if (username === element.getFullName()) {
-                const workplace = document.getElementById(element.getWorkplace())
-                workplace.removeAttribute("visit");
-                workplace.removeAttribute("username");
-                document.querySelector('.office').removeAttribute("availability");
-                element.addVisitedWorkspace(new Date(), element.getWorkplace(), "leave");
-                element.setWorkplace("");
-            }
-        });
+    checkBtnLeave() {
+        const element = this.accountsUsers[this.index];
+        const workplace = document.getElementById(element.getWorkplace())
+
+        workplace.removeAttribute("visit");
+        workplace.removeAttribute("username");
+        document.querySelector('.office').removeAttribute("availability");
+        element.addVisitedWorkspace(new Date(), element.getWorkplace(), "leave");
+        element.setWorkplace("");
         this.serialize();
     }
 
     checkBtnIll(username, dataIll) {
-        this.accountsUsers.forEach(element => {
-            if (username === element.getFullName()) {
-                element.setIll(dataIll);
-                document.querySelector('.office').setAttribute("availability", true);
-                if (element.getWorkplace() !== "")
-                    this.checkBtnLeave(username);
-            }
-        });
+        const element = this.accountsUsers[this.index];
+        element.setIll(dataIll);
+        document.querySelector('.office').setAttribute("availability", true);
+        if (element.getWorkplace() !== "")
+            this.checkBtnLeave(username);
         this.serialize();
     }
 
-    analyticTable(username, table) {
-        this.accountsUsers.forEach(element => {
-            if (username === element.getFullName()) {
-                element.checkRisk(table)
-            }
-        })
+    analyticTable(table) {
+        const element = this.accountsUsers[this.index];
+        element.checkRisk(table)
     }
 }
