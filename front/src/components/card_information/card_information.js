@@ -57,7 +57,7 @@ class CardInformation extends Component {
         const btnDataIll = formOption.elements.btnDataIll;
         const analytic = document.querySelector(".analytic");
 
-        //обработка разголинивания
+        //обработка показа логов
         btnAnalyticaData.addEventListener('click', function () {
             window.scrollTo(100, 0);
             const app = document.getElementById('app');
@@ -89,6 +89,7 @@ class CardInformation extends Component {
     
             analytic.innerHTML = "";
             Animator.hide(analytic, 0);
+            Animator.hide(document.querySelector(".form-theme"), 200);
             Animator.show(FormAuthentication, 400);
             Animator.hide(content, 0);
         })

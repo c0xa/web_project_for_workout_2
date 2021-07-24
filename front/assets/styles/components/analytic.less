@@ -13,7 +13,9 @@
 
     box-shadow: 0 2px 14px @default-grey;
     backdrop-filter: blur(3px);
-    background-color: @default-white;
+
+    color: @default-theme-secondary;
+    background-color: @default-theme-primary;
 
     &__btn-close {
         position: absolute;
@@ -29,10 +31,10 @@
 
         background-image: url("icons/close.svg");
         background-size: 20px;
-        background-color: @default-white;
+        background-color: @default-theme-primary;
         &:hover {
             background-color: @default-shadow-white;
-             backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
         }
     }
 }

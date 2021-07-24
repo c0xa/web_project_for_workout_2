@@ -29,6 +29,16 @@ class App {
         // добавления формы
         app.append(authentication.element);
 
+        // создание переключения темы
+        let switchTheme = new SwitchTheme();
+
+        // добавления кнопки переключения тем
+        app.append(switchTheme.element);
+
+        switchTheme.checkTheme();
+
+        Animator.hide(document.querySelector(".form-theme"), 0);
+
         // создание формы для офиса
         const place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
 
@@ -52,6 +62,7 @@ class App {
                 place.checkWorkplace(store, fullName, userAccount);
                 cardInformation.checkBtn(store, fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
+                Animator.show(document.querySelector(".form-theme"), 400);
                 Animator.hide(document.querySelector(".analytic"), 0);
                 authentication.hiddenErrorDomElement();
                 formAuthentication.reset();
