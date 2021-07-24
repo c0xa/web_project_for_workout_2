@@ -30,12 +30,7 @@ class App {
         app.append(authentication.element);
 
         // создание переключения темы
-        let switchTheme = new SwitchTheme();
-
-        // добавления кнопки переключения тем
-        app.append(switchTheme.element);
-
-        switchTheme.checkTheme();
+        let switchTheme = new SwitchTheme()
 
         Animator.hide(document.querySelector(".form-theme"), 0);
 
@@ -58,11 +53,11 @@ class App {
                 const cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element, analytic.element)
                 app.append(content.element);
+                switchTheme.checkTheme();
                 userAccount.checkAvilableOffice(fullName)
                 place.checkWorkplace(store, fullName, userAccount);
                 cardInformation.checkBtn(store, fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
-                Animator.show(document.querySelector(".form-theme"), 400);
                 Animator.hide(document.querySelector(".analytic"), 0);
                 authentication.hiddenErrorDomElement();
                 formAuthentication.reset();

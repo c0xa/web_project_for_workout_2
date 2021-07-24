@@ -5,7 +5,7 @@ class CardInformation extends Component {
         const spanUserName = new Component("span", userName, "cardInformation__username");
 
         const formForOption = new Component("form", "", "cardInformation__form", [["name", "forOption"]])
-
+        const switchTheme = new SwitchTheme()
         //создание блока для отслеживания заболеваний
 
         let date = new Date();
@@ -41,7 +41,8 @@ class CardInformation extends Component {
 
         formForOption.element.append(btnLeaveWorkplace.element, blockInformationIll.element, btnAnalyticalData.element, btnExitElement.element);
 
-        this.element.append(spanUserName.element, formForOption.element);
+           // добавления кнопки переключения тем блока имени и кнопки опций
+        this.element.append(switchTheme.element, spanUserName.element, formForOption.element);
         return this;
         
 
