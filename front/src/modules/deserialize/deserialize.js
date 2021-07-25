@@ -7,7 +7,7 @@ class Deserialize {
      */
     deserializePerson(accountsUsers) {
         const accounts = JSON.parse(window.localStorage.getItem('user'));
-        if (accounts.length > 0) {
+        if (accounts && accounts.length > 0) {
             accounts.forEach(person => {
                 if (person[1].visitedWorkspace.length > 0)
                     person[1].visitedWorkspace = person[1].visitedWorkspace.map(element => new VisitedWorkspace(new Date(element.fullDate), element.workspace, element.action))

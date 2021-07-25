@@ -81,6 +81,7 @@ gulp.task("scripts", function() {
 		'./front/src/components/visited_workspace/visited_workspace.js',
         './front/src/modules/deserialize/deserialize.js',
         './front/src/modules/serialize/serialize.js',
+		'./front/src/components/window/window.js',
 		'./front/src/components/switch_theme/switch_theme.js',
 		'./front/src/components/form_registration/form_registration.js',
         './front/src/components/office/office.js',

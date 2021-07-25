@@ -45,6 +45,13 @@
     }
 
     &__all-analytic {
+        position: absolute;
+
+        top: 500px;
+        left: calc(50% - 260px);
+
+        width: 400px;
+
         display: flex;
 
         flex-direction: column;
@@ -61,6 +68,33 @@
     }
 
     &__clear-data-block {
+        position: absolute;
+
+        top: 1000px;
+        left: calc(50% - 260px);
+
+        width: 400px;
+        height: 100px;
+
+        text-align: center;
+        color: @default-theme-secondary;
+        background-color: @default-theme-primary;
+        box-shadow: 0 2px 14px @default-grey;
+        backdrop-filter: blur(3px);
+        border-radius: 20px;
+
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    &__risk-analytic {
+        position: absolute;
+
+        top: 700px;
+        left: calc(50% - 260px);
+
+        width: 400px;
+
         text-align: center;
         color: @default-theme-secondary;
         background-color: @default-theme-primary;
@@ -73,11 +107,19 @@
     }
 
     &__clear-data {
+        position: absolute;
+
+        text-align: center;
+        color: @default-theme-primary;
+        box-shadow: 0 2px 14px @default-grey;
+        backdrop-filter: blur(3px);
+        border-radius: 20px;
+
+        margin-bottom: 20px;
+        padding: 20px;
+
         width: 100px;
         height: 80px;
-
-        padding: 1em 2em;
-        margin: 40px;
 
         cursor: pointer;
 
@@ -88,30 +130,14 @@
         border-radius: 8px;
     }
 
-    &__risk-analytic {
-        text-align: center;
-        color: @default-theme-secondary;
-        background-color: @default-theme-primary;
-        box-shadow: 0 2px 14px @default-grey;
-        backdrop-filter: blur(3px);
-        border-radius: 20px;
-
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    &__clear-data {
-        text-align: center;
-        color: @default-theme-primary;
-        box-shadow: 0 2px 14px @default-grey;
-        backdrop-filter: blur(3px);
-        border-radius: 20px;
-
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
     &__switch-risk {
+        position: absolute;
+
+        top: 1200px;
+        left: calc(50% - 260px);
+
+        width: 400px;
+
         text-align: center;
         color: @default-theme-secondary;
         background-color: @default-theme-primary;
@@ -124,6 +150,13 @@
     }
 
     &__form-registration {
+        position: absolute;
+
+        top: 0;
+        left: calc(50% - 260px);
+
+        width: 400px;
+        height: 400px;
         text-align: center;
         color: @default-theme-secondary;
         background-color: @default-theme-primary;

@@ -127,7 +127,7 @@ class Accounts {
 
              //clear VisitedWorkspace
             const titleClearBlock = new Component("span", "Clear data visits", "admin-option__title admin-option__title")
-            const blockClearBlock = new Component("div", "", "admin-option__clear-data-block");
+            const blockClearBlock = new Component("div", "Delete old data", "admin-option__clear-data-block");
             const clearData = new Component("input", "Clear data", "admin-option__clear-data clear-data", [["type", "button"], ["placeholder", "Clear data"],
             ["name", "clear data"]]);
             adminOption.append(blockClearBlock.element);
@@ -144,8 +144,13 @@ class Accounts {
             this.accountsUsers.forEach(element => { this.switchRisk(element) })
 
             let collection = adminOption.children;
+
+            new Window(document.querySelector(".admin-option__all-analytic"));
             for (let elem of collection) {
-                elem.draggable = true;
+                if (!elem.classList.contains("admin-option__btn-update")) {
+                    new Window(elem);
+                    console.log(elem)
+                }
             }
         }
 

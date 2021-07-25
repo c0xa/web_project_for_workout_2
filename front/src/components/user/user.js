@@ -24,14 +24,10 @@ class User {
 
         prevDate.setMonth(month);
 
-        console.log(currDate + " " + prevDate)
-        // число милисекунд в месяце
-        const millisecondsInMonth = 2592000000;
         if (this.visitedWorkspace) { 
             this.visitedWorkspace = this.visitedWorkspace.filter(element => {
                 return prevDate < element.fullDate;
-
-                })
+            })
         }
     }
 

@@ -41,7 +41,7 @@ class FormRegistration extends Component {
                 blockError.setAttribute("hidden", true);
                 blockAdd.removeAttribute("hidden")
                 accountsUsers.addUser(login.value, password.value, firstName.value, secondName.value);
-                formAuthentication.reset();
+                formRegistration.reset();
             } else {
                 blockAdd.setAttribute("hidden", true);
                 blockError.removeAttribute("hidden")
