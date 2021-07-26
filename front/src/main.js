@@ -31,7 +31,6 @@ class App {
 
         // создание формы для офиса
         const place = new Office(PARTOFFICE, COLUMNOFFICE, ROWOFFICE);
-
         const content = new Component("div", " ", "content");
         const formAuthentication = document.forms["form-authentication"];
         const analytic = new Component("div", " ", "analytic");
@@ -49,6 +48,8 @@ class App {
                 const cardInformation = new CardInformation(login.value, fullName);
                 content.element.append(place.element, cardInformation.element, analytic.element, adminOption.element)
                 app.append(content.element);
+                userAccount.updateWorkspace();
+                
                 switchTheme.checkTheme();
                 userAccount.checkAvilableOffice();
                 userAccount.privilegeOption();

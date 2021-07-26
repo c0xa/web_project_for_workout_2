@@ -184,6 +184,23 @@ class Accounts {
 
     }
 
+    updateWorkspace() {
+        this.accountsUsers.forEach(element => {
+            this.setWorkplace(element)
+        })
+    }
+
+    // демонстрация местонахождения пользователей
+    setWorkplace(user) {
+        if (user.getWorkplace != "") {
+            const target = document.getElementById(user.getWorkplace())
+            if (target) {
+                target.setAttribute("visit", true);
+                target.setAttribute("username", user.getFullName());
+            }
+        }
+    }
+
     addedWorkplace(workplace) {
         const element = this.accountsUsers.get(this.login);
         element.setWorkplace(workplace);
