@@ -16,7 +16,7 @@ class Office extends Component {
 
         office.onclick = function (event) {
             const target = event.target;
-            if (target.classList.contains("workplace")) {
+            if (target.classList.contains("workplace") && !target.getAttribute("visit")) {
                 office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
                 target.setAttribute("username", username);
