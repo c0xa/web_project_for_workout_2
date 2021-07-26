@@ -76,7 +76,6 @@ gulp.task("less", function () {
 
 gulp.task("scripts", function() {
 	return src([
-		'./front/src/store/store.js',
         './front/src/components/component/component.js',
 		'./front/src/components/visited_workspace/visited_workspace.js',
         './front/src/modules/deserialize/deserialize.js',

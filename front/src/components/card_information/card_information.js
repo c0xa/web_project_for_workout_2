@@ -13,9 +13,9 @@ class CardInformation extends Component {
 
         const data = new VisitedWorkspace(CurrentDate, "", "");
 
-        const date =  data.calculateDate(CurrentDate); 
+        const date = data.calculateDate(CurrentDate);
 
-        const prevDate =  data.calculatePrevDate(CurrentDate);
+        const prevDate = data.calculatePrevDate(CurrentDate);
 
         const blockInformationIll = new Component("div", "", "cardInformation__informationIll informationIll");
 
@@ -36,18 +36,19 @@ class CardInformation extends Component {
 
         formForOption.element.append(btnLeaveWorkplace.element, blockInformationIll.element, btnAnalyticalData.element, btnExitElement.element);
 
-           // добавления кнопки переключения тем блока имени и кнопки опций
+        // добавления кнопки переключения тем блока имени и кнопки опций
         this.element.append(switchTheme.element, spanUserName.element, formForOption.element);
         return this;
     }
 
-    checkBtn(store, username, userAccount) {
+    checkBtn(username, userAccount) {
         const formOption = document.forms.forOption;
         const FormAuthentication = document.forms["form-authentication"];
         const content = document.querySelector(".content");
         const btnLogOut = formOption.elements.btnExit;
         const btnLeaveWorkplace = formOption.elements.btnLeaveWorkplace;
-        const btnAnalyticaData = formOption.elements.btnAnalyticaData;;
+        const btnAnalyticaData = formOption.elements.btnAnalyticaData;
+        ;
         const btnDataIll = formOption.elements.btnDataIll;
         const analytic = document.querySelector(".analytic");
         const adminOption = document.querySelector(".admin-option");
@@ -73,7 +74,7 @@ class CardInformation extends Component {
             btnCloseAnalytic.addEventListener('click', function () {
 
                 Animator.hide(analytic, 200);
-        });
+            });
 
         })
 
@@ -81,7 +82,7 @@ class CardInformation extends Component {
         btnLogOut.addEventListener('click', function () {
             //делаем доступной форму офиса
             document.querySelector('.office').removeAttribute("availability");
-    
+
             analytic.innerHTML = "";
             adminOption.innerHTML = "";
             Animator.hide(analytic, 0);
@@ -95,14 +96,13 @@ class CardInformation extends Component {
             userAccount.checkBtnLeave()
         })
 
-         //обработка отслеживания заболеваний
+        //обработка отслеживания заболеваний
 
-         btnDataIll.addEventListener('click', function () {
+        btnDataIll.addEventListener('click', function () {
 
             const inputDataIll = formOption.elements.inputDataIll;
-            
+
             userAccount.checkBtnIll(inputDataIll.value)
-            console.log(inputDataIll.value)
         })
     }
 }

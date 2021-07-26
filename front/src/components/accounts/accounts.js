@@ -15,12 +15,12 @@ class Accounts {
 
     async serialize() {
         const serialize = new Serialize();
-        serialize.serializePerson(this.accountsUsers)
+        await serialize.serializePerson(this.accountsUsers)
     }
 
     async deserialize() {
         const deserialize = new Deserialize();
-        this.accountsUsers = deserialize.deserializePerson(this.accountsUsers)
+        this.accountsUsers = await deserialize.deserializePerson(this.accountsUsers)
     }
 
     getAccountsUsers() {
@@ -127,7 +127,7 @@ class Accounts {
 
              //clear VisitedWorkspace
             const titleClearBlock = new Component("span", "Clear data visits", "admin-option__title admin-option__title")
-            const blockClearBlock = new Component("div", "Delete old data", "admin-option__clear-data-block");
+            const blockClearBlock = new Component("div", "", "admin-option__clear-data-block");
             const clearData = new Component("input", "Clear data", "admin-option__clear-data clear-data", [["type", "button"], ["placeholder", "Clear data"],
             ["name", "clear data"]]);
             adminOption.append(blockClearBlock.element);
@@ -149,7 +149,6 @@ class Accounts {
             for (let elem of collection) {
                 if (!elem.classList.contains("admin-option__btn-update")) {
                     new Window(elem);
-                    console.log(elem)
                 }
             }
         }
@@ -200,12 +199,15 @@ class Accounts {
 
     checkBtnLeave() {
         const element = this.accountsUsers.get(this.login);
+        if (element.getWorkplace() === "")
+            return;
         const workplace = document.getElementById(element.getWorkplace())
         if (workplace !== "") {
             workplace.removeAttribute("visit");
             workplace.removeAttribute("username");
-            document.querySelector('.office').removeAttribute("availability");
-
+            if (!element.getIll() && !element.getRisk()) {
+                document.querySelector('.office').removeAttribute("availability");
+            }
             //для теста удаления new Date('2001-06-23T03:24:00')
             
             element.addVisitedWorkspace(new Date() , element.getWorkplace(), "leave");

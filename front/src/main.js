@@ -15,11 +15,8 @@ class App {
     /** Установка приложения */
     async install() {
         // Регистрация обработчика событий скрола страницы
-        const store = createStore(reducer);
 
         const userAccount = new Accounts();
-
-        store.subscribe((state) => console.log(state));
 
         let app = document.getElementById('app');
 
@@ -55,8 +52,8 @@ class App {
                 switchTheme.checkTheme();
                 userAccount.checkAvilableOffice();
                 userAccount.privilegeOption();
-                place.checkWorkplace(store, fullName, userAccount);
-                cardInformation.checkBtn(store, fullName, userAccount);
+                place.checkWorkplace(fullName, userAccount);
+                cardInformation.checkBtn(fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
                 Animator.hide(document.querySelector(".analytic"), 0);
                 authentication.hiddenErrorDomElement();

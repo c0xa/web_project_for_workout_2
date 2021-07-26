@@ -11,7 +11,7 @@ class Office extends Component {
         return this;
     }
 
-    checkWorkplace(store, username, userAccount) {
+    checkWorkplace(username, userAccount) {
         const office = document.querySelector('.office');
 
         office.onclick = function(event) {
