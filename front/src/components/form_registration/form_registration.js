@@ -5,19 +5,19 @@ class FormRegistration extends Component {
         const title = new Component("span", "Registration", "form-registration__title admin-option__title")
 
         const inputLogin = new Component("input", "", "form-registration__input-login", [["type", "text"], ["placeholder", "login"],
-                                                                        ["name", "login"], ["minlength", "4"]])
+            ["name", "login"], ["minlength", "4"]])
 
         const inputPassword = new Component("input", " ", "form-registration__input-password", [["type", "text"], ["placeholder", "password"],
             ["name", "password"], ["minlength", "4"]])
 
         const inputFirstName = new Component("input", "", "form-registration__input-first-name", [["type", "text"], ["placeholder", "first name"],
-        ["name", "firstName"]])
+            ["name", "firstName"]])
 
         const inputSecondName = new Component("input", " ", "form-registration__input-second-name", [["type", "text"], ["placeholder", "second name"],
-        ["name", "secondName"]])
+            ["name", "secondName"]])
 
         const divError = new Component("div", "This login exists", "form-registration__block-error", [["hidden", "true"]]);
-        
+
         const divAdd = new Component("div", "Added", "form-registration__block-add", [["hidden", "true"]]);
 
         const btn = new Component("button", "Add", "form-registration__btn", [["type", "button"], ["placeholder", "enter"], ["name", "btnEnter"]])
@@ -35,7 +35,7 @@ class FormRegistration extends Component {
         const btn = formRegistration.elements.btnEnter;
         const blockError = document.querySelector(".form-registration__block-error")
         const blockAdd = document.querySelector(".form-registration__block-add")
-        
+
         btn.addEventListener('click', function () {
             if (accountsUsers.toCheckLogin(login.value)) {
                 blockError.setAttribute("hidden", true);

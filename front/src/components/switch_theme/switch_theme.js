@@ -3,10 +3,10 @@ class SwitchTheme extends Component {
         super('form', "", "form-theme", [["name", "form-theme"]]);
 
         const lightTheme = new Component("input", "", "form-theme__light-theme", [["type", "button"], ["value", "light"],
-                                                                        ["name", "light"]]);
-     
+            ["name", "light"]]);
+
         const darkTheme = new Component("input", "", "form-theme__dark-theme", [["type", "button"], ["value", "dark"],
-                                                                        ["name", "dark"]]);
+            ["name", "dark"]]);
 
         this.element.append(lightTheme.element, darkTheme.element);
         this.lightTheme();
@@ -44,18 +44,18 @@ class SwitchTheme extends Component {
         const lightTheme = formTheme.elements.light;
         const darkTheme = formTheme.elements.dark;
         lightTheme.setAttribute("availability", true);
-        
-        lightTheme.addEventListener('click',(e)=>{
+
+        lightTheme.addEventListener('click', (e) => {
             this.lightTheme();
             lightTheme.setAttribute("availability", true);
             darkTheme.removeAttribute("availability");
         })
-        
-        darkTheme.addEventListener('click',(e)=>{
+
+        darkTheme.addEventListener('click', (e) => {
             this.darkTheme();
             darkTheme.setAttribute("availability", true);
             lightTheme.removeAttribute("availability");
         })
-        
+
     }
 }

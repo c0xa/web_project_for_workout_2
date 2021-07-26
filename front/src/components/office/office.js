@@ -14,9 +14,9 @@ class Office extends Component {
     checkWorkplace(username, userAccount) {
         const office = document.querySelector('.office');
 
-        office.onclick = function(event) {
+        office.onclick = function (event) {
             const target = event.target;
-            if (target.classList.contains("workplace")) {;
+            if (target.classList.contains("workplace")) {
                 office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
                 target.setAttribute("username", username);

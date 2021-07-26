@@ -20,11 +20,11 @@ class User {
         const prevDate = new Date();
 
         let month = currDate.getMonth();
-        month = (month === 0) ? 12 : month - 1; 
+        month = (month === 0) ? 12 : month - 1;
 
         prevDate.setMonth(month);
 
-        if (this.visitedWorkspace) { 
+        if (this.visitedWorkspace) {
             this.visitedWorkspace = this.visitedWorkspace.filter(element => {
                 return prevDate < element.fullDate;
             })
@@ -34,9 +34,9 @@ class User {
     checkIll(table) {
         const tr = new Component("tr", "", "table-analytic__tr");
         tr.element.append(new Component("td", this.login, "table-analytic__td").element,
-            new Component("td", this. getFullName(), "table-analytic__td").element, 
-            new Component("td", this.ill, "table-analytic__td").element, 
-            new Component("td", this.risk, "table-analytic__td").element, 
+            new Component("td", this.getFullName(), "table-analytic__td").element,
+            new Component("td", this.ill, "table-analytic__td").element,
+            new Component("td", this.risk, "table-analytic__td").element,
             new Component("td", this.dataIll, "table-analytic__td").element)
         table.element.append(tr.element)
     }
@@ -50,8 +50,8 @@ class User {
             workspace[2] = workspace[2].replace('n', 'column ');
             workspace = workspace.join(" ");
             tr.element.append(new Component("td", part.date, "table-analytic__td").element,
-                new Component("td", part.time, "table-analytic__td").element, 
-                new Component("td", workspace, "table-analytic__td").element, 
+                new Component("td", part.time, "table-analytic__td").element,
+                new Component("td", workspace, "table-analytic__td").element,
                 new Component("td", part.action, "table-analytic__td").element)
             table.element.append(tr.element)
         })

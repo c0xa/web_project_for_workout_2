@@ -3,7 +3,7 @@ class FormAuthentication extends Component {
         super('form', "", "form-authentication", [["name", "form-authentication"], ["action", "#"]]);
 
         const inputLogin = new Component("input", "", "form-authentication__input-login", [["type", "text"], ["placeholder", "login"],
-                                                                        ["name", "login"]])
+            ["name", "login"]])
 
         const inputPassword = new Component("input", " ", "form-authentication__input-password", [["type", "password"], ["placeholder", "password"],
             ["name", "password"]])

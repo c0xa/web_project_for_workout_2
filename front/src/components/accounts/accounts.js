@@ -29,19 +29,19 @@ class Accounts {
 
     toString() {
         let userName = "";
-        const element =  this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.login);
         userName = element.getFullName();
         return userName;
     }
 
     allAnalytic(user) {
-            const table = new Component("table", " ", "analytic__table-analytic table-analytic");
-            const caption = new Component("caption", user.getFullName(), "table-analytic__caption");
-            const tr = new Component("tr", "", "table-analytic__tr");
-            tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
-            table.element.append(caption.element, tr.element);
-            user.checkRisk(table);
-            document.querySelector(".all-analytic").append(table.element);
+        const table = new Component("table", " ", "analytic__table-analytic table-analytic");
+        const caption = new Component("caption", user.getFullName(), "table-analytic__caption");
+        const tr = new Component("tr", "", "table-analytic__tr");
+        tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
+        table.element.append(caption.element, tr.element);
+        user.checkRisk(table);
+        document.querySelector(".all-analytic").append(table.element);
     }
 
     checkIll(user) {
@@ -67,7 +67,7 @@ class Accounts {
             ["name", "risk-" + user.getLogin()], ["id", "infected"]]);
 
         const onBtn = new Component("input", "not infected", "item-risk-not-infected", [["type", "radio"], ["placeholder", "Off"],
-        ["name", "risk-" + user.getLogin()], ["id", "not infected"]]);
+            ["name", "risk-" + user.getLogin()], ["id", "not infected"]]);
 
         const spanInfected = new Component("label", "infected", "item-risk__name-infected", [["for", "infected"]]);
         const spanNotInfected = new Component("label", "not infected", "item-risk__name-not-infected", [["for", "not infected"]]);
@@ -104,7 +104,7 @@ class Accounts {
                 this.privilegeOption();
                 console.log("update")
             });
-           
+
             //add user
             const formRegistration = new FormRegistration()
             adminOption.append(formRegistration.element)
@@ -116,24 +116,30 @@ class Accounts {
             const analytic = new Component("div", "", "admin-option__all-analytic all-analytic");
             adminOption.append(analytic.element);
             document.querySelector(".all-analytic").append(titleAnalytic.element);
-            this.accountsUsers.forEach(element => { this.allAnalytic(element) })
+            this.accountsUsers.forEach(element => {
+                this.allAnalytic(element)
+            })
 
             //check risk
             const titleRisk = new Component("span", "Risk and ill corona", "risk-analytic__title admin-option__title")
             const risk = new Component("div", "", "admin-option__risk-analytic risk-analytic");
             adminOption.append(risk.element);
             document.querySelector(".risk-analytic").append(titleRisk.element);
-            this.accountsUsers.forEach(element => { this.checkIll(element) })
+            this.accountsUsers.forEach(element => {
+                this.checkIll(element)
+            })
 
-             //clear VisitedWorkspace
+            //clear VisitedWorkspace
             const titleClearBlock = new Component("span", "Clear data visits", "admin-option__title admin-option__title")
             const blockClearBlock = new Component("div", "", "admin-option__clear-data-block");
             const clearData = new Component("input", "Clear data", "admin-option__clear-data clear-data", [["type", "button"], ["placeholder", "Clear data"],
-            ["name", "clear data"]]);
+                ["name", "clear data"]]);
             adminOption.append(blockClearBlock.element);
             document.querySelector(".admin-option__clear-data-block").append(titleClearBlock.element, clearData.element);
             document.querySelector(".clear-data").addEventListener('click', element => {
-                this.accountsUsers.forEach(element => { this.clearData(element) })
+                this.accountsUsers.forEach(element => {
+                    this.clearData(element)
+                })
             })
 
             //table risk yes no
@@ -141,7 +147,9 @@ class Accounts {
             const switchRisk = new Component("div", "", "admin-option__switch-risk switch-risk");
             adminOption.append(switchRisk.element);
             document.querySelector(".switch-risk").append(switchTitle.element);
-            this.accountsUsers.forEach(element => { this.switchRisk(element) })
+            this.accountsUsers.forEach(element => {
+                this.switchRisk(element)
+            })
 
             let collection = adminOption.children;
 
@@ -192,7 +200,7 @@ class Accounts {
         if (element.getWorkplace() !== "") {
             const workplace = document.getElementById(element.getWorkplace());
             workplace.setAttribute("visit", true);
-            workplace.setAttribute("username",  element.getFullName());
+            workplace.setAttribute("username", element.getFullName());
         }
         return this;
     }
@@ -209,8 +217,8 @@ class Accounts {
                 document.querySelector('.office').removeAttribute("availability");
             }
             //для теста удаления new Date('2001-06-23T03:24:00')
-            
-            element.addVisitedWorkspace(new Date() , element.getWorkplace(), "leave");
+
+            element.addVisitedWorkspace(new Date(), element.getWorkplace(), "leave");
             element.setWorkplace("");
             this.serialize();
         }
