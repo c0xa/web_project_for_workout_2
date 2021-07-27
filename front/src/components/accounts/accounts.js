@@ -82,12 +82,14 @@ class Accounts {
         }
         el.querySelector(".item-risk-not-infected").addEventListener("click", el => {
             user.setRisk(false);
-            document.querySelector('.office').removeAttribute("availability");
+            if (user.getFullName() === this.accountsUsers.get(this.login).getFullName())
+                document.querySelector('.office').removeAttribute("availability");
             this.serialize();
         })
 
         el.querySelector(".item-risk-infected").addEventListener("click", el => {
-            document.querySelector('.office').setAttribute("availability", true);
+            if (user.getFullName() === this.accountsUsers.get(this.login).getFullName())
+                document.querySelector('.office').setAttribute("availability", true);
             user.setRisk(true);
             if (user.getWorkplace() !== "") {
                 const workplace = document.getElementById(user.getWorkplace())
