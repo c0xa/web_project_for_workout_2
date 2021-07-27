@@ -89,6 +89,15 @@ class Accounts {
         el.querySelector(".item-risk-infected").addEventListener("click", el => {
             document.querySelector('.office').setAttribute("availability", true);
             user.setRisk(true);
+            if (user.getWorkplace() !== "") {
+                const workplace = document.getElementById(user.getWorkplace())
+                if (workplace !== null) {
+                    workplace.removeAttribute("visit");
+                    workplace.removeAttribute("username");
+                    user.addVisitedWorkspace(new Date(), user.getWorkplace(), "leave");
+                    user.setWorkplace("");
+                }
+            }
             this.serialize();
         })
     }
@@ -192,7 +201,7 @@ class Accounts {
 
     // демонстрация местонахождения пользователей
     setWorkplace(user) {
-        if (user.getWorkplace != "") {
+        if (user.getWorkplace() !== "") {
             const target = document.getElementById(user.getWorkplace())
             if (target) {
                 target.setAttribute("visit", true);
