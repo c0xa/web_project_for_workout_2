@@ -19,16 +19,18 @@ class CardInformation extends Component {
 
         const blockInformationIll = new Component("div", "", "cardInformation__informationIll informationIll");
 
+        const spanIll = new Component("span", "Date of COVID-19 contact", "informationIll__title-ill")
+
         const inputDataIll = new Component("input", "", "informationIll__input-data-ill", [["type", "date"], ["name", "inputDataIll"], ["max", date], ["min", prevDate]])
 
         const btnDataIll = new Component("input", "", "informationIll__btn-data-ill", [["type", "button"], ["value", "Enter"], ["name", "btnDataIll"]])
 
-        blockInformationIll.element.append(inputDataIll.element, btnDataIll.element)
+        blockInformationIll.element.append(spanIll.element, inputDataIll.element, btnDataIll.element)
 
         //создание кнопки покидания офиса
         const btnLeaveWorkplace = new Component("input", "", "cardInformation__btn-leave", [["type", "button"], ["value", "leave the workplace"], ["name", "btnLeaveWorkplace"]])
 
-        //создание кнопки разлог.
+        //создание кнопки аналитики
         const btnAnalyticalData = new Component("input", "", "cardInformation__analytical-data", [["type", "button"], ["value", "Analytical data"], ["name", "btnAnalyticaData"]])
 
         //создание кнопки разлог.

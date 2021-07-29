@@ -3,13 +3,13 @@ class Accounts {
         this.accountsUsers = new Map();
         this.deserialize();
         if (this.accountsUsers.size === 0) {
-            this.accountsUsers.set("admin", new User("admin", "admin", "Ivanov", "Ivan"));
+            this.accountsUsers.set(User.hashCode("admin"), new User("admin", "admin", "Ivanov", "Ivan"));
             this.serialize();
         }
     }
 
     addUser(login, password, firstName, secondName) {
-        this.accountsUsers.set(login, new User(login, password, firstName, secondName));
+        this.accountsUsers.set(User.hashCode(login), new User(login, password, firstName, secondName));
         this.serialize();
     }
 
@@ -29,7 +29,7 @@ class Accounts {
 
     toString() {
         let userName = "";
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         userName = element.getFullName();
         return userName;
     }
@@ -60,21 +60,21 @@ class Accounts {
     }
 
     switchRisk(user) {
-        const risk = new Component("div", "", "switch-risk___item-risk-" + user.getLogin());
+        const risk = new Component("div", "", "switch-risk___item-risk-" + User.hashCode(user.getLogin()));
 
         const span = new Component("span", user.getFullName(), "item-risk__name");
         const offBtn = new Component("input", "On", "item-risk-infected", [["type", "radio"], ["placeholder", "On"],
-            ["name", "risk-" + user.getLogin()], ["id", "infected"]]);
+            ["name", "risk-" + User.hashCode(user.getLogin())], ["id", "infected"]]);
 
         const onBtn = new Component("input", "not infected", "item-risk-not-infected", [["type", "radio"], ["placeholder", "Off"],
-            ["name", "risk-" + user.getLogin()], ["id", "not infected"]]);
+            ["name", "risk-" + User.hashCode(user.getLogin())], ["id", "not infected"]]);
 
         const spanInfected = new Component("label", "infected", "item-risk__name-infected", [["for", "infected"]]);
         const spanNotInfected = new Component("label", "not infected", "item-risk__name-not-infected", [["for", "not infected"]]);
 
         risk.element.append(span.element, offBtn.element, spanInfected.element, onBtn.element, spanNotInfected.element)
         document.querySelector(".switch-risk").append(risk.element);
-        const el = document.querySelector(".switch-risk___item-risk-" + user.getLogin())
+        const el = document.querySelector(".switch-risk___item-risk-" + User.hashCode(user.getLogin()))
         if (user.getIll() || user.getRisk()) {
             el.querySelector(".item-risk-infected").checked = true;
         } else {
@@ -82,13 +82,13 @@ class Accounts {
         }
         el.querySelector(".item-risk-not-infected").addEventListener("click", el => {
             user.setRisk(false);
-            if (user.getFullName() === this.accountsUsers.get(this.login).getFullName())
+            if (user.getFullName() === this.accountsUsers.get(this.hashCode).getFullName())
                 document.querySelector('.office').removeAttribute("availability");
             this.serialize();
         })
 
         el.querySelector(".item-risk-infected").addEventListener("click", el => {
-            if (user.getFullName() === this.accountsUsers.get(this.login).getFullName())
+            if (user.getFullName() === this.accountsUsers.get(this.hashCode).getFullName())
                 document.querySelector('.office').setAttribute("availability", true);
             user.setRisk(true);
             if (user.getWorkplace() !== "") {
@@ -175,16 +175,19 @@ class Accounts {
     }
 
     toCheckLogin(login) {
-        return (this.accountsUsers.get(login) === undefined)
+        console.log(this.accountsUsers.get(User.hashCode(login)) === undefined)
+        console.log(User.hashCode(login))
+
+        return (this.accountsUsers.get(User.hashCode(login)) === undefined)
     }
 
 
     toEqual(login, password) {
-        const user = this.accountsUsers.get(login);
+        const user = this.accountsUsers.get(User.hashCode(login));
         this.privilegeOptionFlag = false;
         if (user) {
             if (user.getPassword() === password) {
-                this.login = login;
+                this.hashCode = User.hashCode(login);
                 if (password === "admin" && login === "admin") { //сделано ради безопасности
                     this.privilegeOptionFlag = true;
                 }
@@ -213,7 +216,7 @@ class Accounts {
     }
 
     addedWorkplace(workplace) {
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         element.setWorkplace(workplace);
         element.addVisitedWorkspace(new Date(), element.getWorkplace(), "come");
         this.serialize();
@@ -221,7 +224,7 @@ class Accounts {
 
 
     checkAvilableOffice() {
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         if (element.getWorkplace() !== "" || element.getIll() || element.getRisk()) {
             document.querySelector('.office').setAttribute("availability", true);
         }
@@ -234,7 +237,7 @@ class Accounts {
     }
 
     checkBtnLeave() {
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         if (element.getWorkplace() === "")
             return;
         const workplace = document.getElementById(element.getWorkplace())
@@ -253,7 +256,7 @@ class Accounts {
     }
 
     checkBtnIll(dataIll) {
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         element.setIll(dataIll);
         document.querySelector('.office').setAttribute("availability", true);
         if (element.getWorkplace() !== "")
@@ -262,7 +265,7 @@ class Accounts {
     }
 
     analyticTable(table) {
-        const element = this.accountsUsers.get(this.login);
+        const element = this.accountsUsers.get(this.hashCode);
         element.checkRisk(table)
     }
 }

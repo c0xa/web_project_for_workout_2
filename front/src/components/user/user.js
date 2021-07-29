@@ -11,6 +11,16 @@ class User {
         this.visitedWorkspace = visitedWorkspace;
     }
 
+    static hashCode(string) {
+        var hash = 0;
+        for (var i = 0; i < string.length; i++) {
+            var character = string.charCodeAt(i);
+            hash = ((hash<<5)-hash)+character;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+    }
+
     addVisitedWorkspace(data, workspace, action) {
         this.visitedWorkspace.push(new VisitedWorkspace(data, workspace, action))
     }

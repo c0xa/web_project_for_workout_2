@@ -36,7 +36,7 @@ class VisitedWorkspace {
     }
 
     toTime(data) {
-        return [data.getHours(), data.getMinutes(), data.getSeconds()].join(":");
+        return [data.getHours(), this.formatMonth(data.getMinutes()),  this.formatMonth(data.getSeconds())].join(":");
     }
 
     toDate(data) {
