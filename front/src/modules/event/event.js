@@ -1,4 +1,5 @@
-class Events {
+/** Шина событий приложения и константы событий */
+export default class Events {
     // Константы событий
     static AppLoaded = 'app-loaded'
     static PageScroll = 'page-scroll'
@@ -24,7 +25,7 @@ class Events {
         Events._bus.removeEventListener(event, handler)
     }
 
-    /**
+    /** 
      * Вызвать событие у всех подписчиков
      * @param {String} event Строка с именем события
      * @param {Object} data Объект с параметрами события

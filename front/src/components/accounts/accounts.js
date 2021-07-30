@@ -38,7 +38,7 @@ class Accounts {
         const table = new Component("table", " ", "analytic__table-analytic table-analytic");
         const caption = new Component("caption", user.getFullName(), "table-analytic__caption");
         const tr = new Component("tr", "", "table-analytic__tr");
-        tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
+        tr.element.append(new Component("td", "Date", "table-analytic__td").element, new Component("td", "Time", "table-analytic__td").element, new Component("td", "Workplace", "table-analytic__td").element, new Component("td", "Action", "table-analytic__td").element)
         table.element.append(caption.element, tr.element);
         user.checkRisk(table);
         document.querySelector(".all-analytic").append(table.element);
@@ -48,7 +48,7 @@ class Accounts {
         const table = new Component("table", " ", "analytic__table-analytic table-analytic");
         const caption = new Component("caption", user.getFullName(), "table-analytic__caption");
         const tr = new Component("tr", "", "table-analytic__tr");
-        tr.element.append(new Component("td", "login", "table-analytic__td").element, new Component("td", "full name", "table-analytic__td").element, new Component("td", "ill?", "table-analytic__td").element, new Component("td", "risk?", "table-analytic__td").element, new Component("td", "data ill", "table-analytic__td").element)
+        tr.element.append(new Component("td", "Login", "table-analytic__td").element, new Component("td", "Full name", "table-analytic__td").element, new Component("td", "Is sick?", "table-analytic__td").element, new Component("td", "Is infected?", "table-analytic__td").element, new Component("td", "Date of contact", "table-analytic__td").element)
         table.element.append(caption.element, tr.element);
         user.checkIll(table);
         document.querySelector(".risk-analytic").append(table.element);
@@ -110,10 +110,9 @@ class Accounts {
             adminOption.innerHTML = "";
             //icons update
             const update = new Component("input", "", "admin-option__btn-update", [["type", "button"], ["name", "update"]]);
-            adminOption.append(update.element);
+            adminOption.prepend(update.element);
             document.querySelector(".admin-option__btn-update").addEventListener('click', element => {
                 this.privilegeOption();
-                console.log("update")
             });
 
             //add user
@@ -132,9 +131,9 @@ class Accounts {
             })
 
             //check risk
-            const titleRisk = new Component("span", "Risk and ill corona", "risk-analytic__title admin-option__title")
+            const titleRisk = new Component("span", "COVID-19 infection and risk", "risk-analytic__title admin-option__title")
             const risk = new Component("div", "", "admin-option__risk-analytic risk-analytic");
-            adminOption.append(risk.element);
+            adminOption.appendChild(risk.element);
             document.querySelector(".risk-analytic").append(titleRisk.element);
             this.accountsUsers.forEach(element => {
                 this.checkIll(element)

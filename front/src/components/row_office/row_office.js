@@ -8,7 +8,7 @@ class RowOffice extends Component {
 
             const place = new Component('a', '', 'workplace__block', [["href", "#"]]);
             elements.element.append(place.element, elementText.element)
-            this.element.append(elements.element);
+            this.element.appendChild(elements.element);
         }
         return this;
     }

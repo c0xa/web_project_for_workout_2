@@ -92,6 +92,7 @@ gulp.task("scripts", function() {
 		'./front/src/components/form_authentication/form_authentication.js',
 		'./front/src/modules/animator/animator.js',
 		'./front/src/modules/event/event.js',
+		'./front/src/modules/bgscroll/bgscroll.js',
 		'./front/src/main.js',
        
 	]) 

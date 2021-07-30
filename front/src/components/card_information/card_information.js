@@ -22,10 +22,14 @@ class CardInformation extends Component {
         const spanIll = new Component("span", "Date of COVID-19 contact", "informationIll__title-ill")
 
         const inputDataIll = new Component("input", "", "informationIll__input-data-ill", [["type", "date"], ["name", "inputDataIll"], ["max", date], ["min", prevDate]])
+        
+        const divEmpty = new Component("div", "Empty input", "informationIll__block-empty", [["hidden", "true"]]);
+
+        const blockAdd = new Component("div", "Added", "informationIll__block-add", [["hidden", "true"]]);
 
         const btnDataIll = new Component("input", "", "informationIll__btn-data-ill", [["type", "button"], ["value", "Enter"], ["name", "btnDataIll"]])
 
-        blockInformationIll.element.append(spanIll.element, inputDataIll.element, btnDataIll.element)
+        blockInformationIll.element.append(spanIll.element, divEmpty.element, blockAdd.element, inputDataIll.element, btnDataIll.element)
 
         //создание кнопки покидания офиса
         const btnLeaveWorkplace = new Component("input", "", "cardInformation__btn-leave", [["type", "button"], ["value", "leave the workplace"], ["name", "btnLeaveWorkplace"]])
@@ -54,6 +58,8 @@ class CardInformation extends Component {
         const btnDataIll = formOption.elements.btnDataIll;
         const analytic = document.querySelector(".analytic");
         const adminOption = document.querySelector(".admin-option");
+        const errorBlock = document.querySelector(".informationIll__block-empty");
+        const addBlock = document.querySelector(".informationIll__block-add");
 
         //обработка показа логов
         btnAnalyticaData.addEventListener('click', function () {
@@ -62,13 +68,13 @@ class CardInformation extends Component {
             analytic.innerHTML = "";
             const imageClose = new Component("input", "", "analytic__btn-close", [["type", "button"], ["name", "btnClose"]])
             const table = new Component("table", " ", "analytic__table-analytic table-analytic");
-            const caption = new Component("caption", "Analytic", "table-analytic__caption");
+            const caption = new Component("caption", "Analytics", "table-analytic__caption");
             const tr = new Component("tr", "", "table-analytic__tr");
-            tr.element.append(new Component("td", "data", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workspace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
+            tr.element.append(new Component("td", "date", "table-analytic__td").element, new Component("td", "time", "table-analytic__td").element, new Component("td", "workplace", "table-analytic__td").element, new Component("td", "action", "table-analytic__td").element)
             table.element.append(caption.element, tr.element)
             userAccount.analyticTable(table)
             analytic.append(imageClose.element, table.element)
-            app.append(analytic);
+            app.appendChild(analytic);
             Animator.show(analytic, 200);
 
             //обработка кнопки закрытия
@@ -99,12 +105,17 @@ class CardInformation extends Component {
         })
 
         //обработка отслеживания заболеваний
-
+        const inputDataIll = formOption.elements.inputDataIll;
         btnDataIll.addEventListener('click', function () {
+            if (!inputDataIll.value) {
+                addBlock.setAttribute("hidden", true);
+                errorBlock.removeAttribute("hidden")
+            } else {
+                errorBlock.setAttribute("hidden", true);
+                addBlock.removeAttribute("hidden")
 
-            const inputDataIll = formOption.elements.inputDataIll;
-
-            userAccount.checkBtnIll(inputDataIll.value)
+                userAccount.checkBtnIll(inputDataIll.value)
+            }
         })
     }
 }

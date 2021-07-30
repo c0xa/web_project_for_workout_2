@@ -14,14 +14,15 @@ class Office extends Component {
     checkWorkplace(username, userAccount) {
         const office = document.querySelector('.office');
 
-        office.onclick = function (event) {
+        office.addEventListener("click", event => {
             const target = event.target;
+            event.stopImmediatePropagation()
             if (target.classList.contains("workplace") && !target.getAttribute("visit")) {
                 office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
                 target.setAttribute("username", username);
                 userAccount.addedWorkplace(target.getAttribute("id"));
             }
-        };
+        });
     }
 }

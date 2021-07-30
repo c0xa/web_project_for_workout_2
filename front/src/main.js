@@ -15,6 +15,7 @@ class App {
     /** Установка приложения */
     async install() {
         // Регистрация обработчика событий скрола страницы
+        await BackgroundScroll.setupScrollEventer(Events, Events.PageScroll)
 
         const userAccount = new Accounts();
 
@@ -74,6 +75,16 @@ class App {
     /** Регистрация событий приложения */
     async registerEvents() {
         Events.on(Events.AppLoaded, this.onLoad)
+        Events.on(Events.PageScroll, this.onPageScroll)
+    }
+
+     /** Действие при скроле страницы */
+     async onPageScroll({ detail }) {
+        const appDom = document.querySelector('#app')
+        console.log("border")
+        appDom.style['backdrop-filter'] = `blur(${detail.scroll * 10}px) contrast(${detail.scroll + 1})`
+        appDom.style['backdrop-filter'] = `contrast(${detail.scroll + 1})`
+        appDom.style['background'] = `rgba(255, 255, 255, ${0.9 + detail.scroll * 0.1})`
     }
 
     /** Приложение завершило загрузку */
