@@ -15,7 +15,7 @@ class App {
     /** Установка приложения */
     async install() {
         // Регистрация обработчика событий скрола страницы
-        await BackgroundScroll.setupScrollEventer(Events, Events.PageScroll)
+        BackgroundScroll.setupScrollEventer(Events, Events.PageScroll)
 
         const userAccount = new Accounts();
 
