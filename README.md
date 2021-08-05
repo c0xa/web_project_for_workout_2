@@ -5,26 +5,26 @@
 
 https://office-work.herokuapp.com/
 
-# О приложении
-Клиентское приложение для отслеживания посещения офиса и контакта заболевших сотрудников с коллегами. Данные хранятся в local storage. 
+# About
+A client application for tracking office visits and contact of sick employees with colleagues. The data is stored in localstorage.
 
-Приложение имеет две темы.
+The application has two themes.
 
 ![Theme](img/theme.png)
 
-Окно аутентификации
+Authentication window
 
 ![Login in](img/log_in.png)
 
-Для начала работы нужно войти за администратора и ввести admin admin. Администратуру доступны особые привелегии: добавления новых сотрудников, просмотр посещения офиса всех сотрудников, просмотр даты заболевания сотрудников, изменения статуса под риском быть заболевшим. Также администратор может удалить старые записи посещения офиса, устаревшие записи те, которым больше месяца.
+To get started, you need to log in as an administrator and enter admin admin. Special privileges are available to the administrator: adding new employees, viewing visits to the office of all employees, viewing the date of illness of employees, changing the status at risk of being ill. The administrator can also delete old records of office visits, outdated records are those that are more than a month old.
 
 ![Admin option](img/admin_option.png)
 
-После регестрации новых сотрудников мы может выйти в главное меню и зайти за одного сотрудника. Сотруднику доступны функции: просмотреть статистику посещения офиса, сообщить администратуру о заболевании короновирусом. В случае заболевания рабочий день для сотрудника прекращается и возможность сесть за рабочее место блокируется до того момента, пока администратор не скажет в блоке Switch risk, что сотрудник не заразен.
+After registering new employees, we can go to the main menu and go for one employee. The employee has the following functions: view the statistics of office visits, inform the administrator about the coronavirus disease. In case of illness, the working day for the employee is terminated and the opportunity to sit at the workplace is blocked until the administrator says in the Switch risk block that the employee is not contagious.
 
 ![Analytics](img/analytics.png)
 
-Пример работы приложения
+An example of how the application works
 
 ![Example](img/example.png)
 
