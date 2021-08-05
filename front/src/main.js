@@ -54,7 +54,7 @@ class App {
                 switchTheme.checkTheme();
                 userAccount.checkAvilableOffice();
                 userAccount.privilegeOption();
-                place.checkWorkplace(fullName, userAccount);
+                place.checkWorkplace(userAccount);
                 cardInformation.checkBtn(fullName, userAccount);
                 Animator.show(document.querySelector(".content"), 400);
                 Animator.hide(document.querySelector(".analytic"), 0);
@@ -81,7 +81,6 @@ class App {
      /** Действие при скроле страницы */
      async onPageScroll({ detail }) {
         const appDom = document.querySelector('#app')
-        console.log("border")
         appDom.style['backdrop-filter'] = `blur(${detail.scroll * 10}px) contrast(${detail.scroll + 1})`
         appDom.style['backdrop-filter'] = `contrast(${detail.scroll + 1})`
         appDom.style['background'] = `rgba(255, 255, 255, ${0.9 + detail.scroll * 0.1})`

@@ -42,6 +42,8 @@ class FormRegistration extends Component {
         btn.addEventListener('click', function () {
             if (!login.value || !password.value || !firstName.value || !secondName.value) {
                 blockEmpty.removeAttribute("hidden")
+                blockError.setAttribute("hidden", true);
+                blockAdd.setAttribute("hidden", true);
             } else {
                 if (accountsUsers.toCheckLogin(login.value)) {
                     blockError.setAttribute("hidden", true);

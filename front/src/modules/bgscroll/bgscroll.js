@@ -10,7 +10,6 @@ class BackgroundScroll {
     static setupScrollEventer(bus, event) {
         // Слушаем событие скрола страницы и вычисляем процент скролинга
         window.addEventListener('scroll', ev => {
-            console.log("start")
             const pageHeight = document.documentElement.getBoundingClientRect().height
             const pageVisibleHeight = window.innerHeight
             // Процент скролинга от 0 до 1

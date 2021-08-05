@@ -11,7 +11,7 @@ class Office extends Component {
         return this;
     }
 
-    checkWorkplace(username, userAccount) {
+    checkWorkplace(userAccount) {
         const office = document.querySelector('.office');
 
         office.addEventListener("click", event => {
@@ -20,8 +20,7 @@ class Office extends Component {
             if (target.classList.contains("workplace") && !target.getAttribute("visit")) {
                 office.setAttribute("availability", true);
                 target.setAttribute("visit", true);
-                target.setAttribute("username", username);
-                userAccount.addedWorkplace(target.getAttribute("id"));
+                userAccount.addedWorkplace(target.getAttribute("id"), target);
             }
         });
     }

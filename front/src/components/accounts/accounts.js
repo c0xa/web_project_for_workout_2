@@ -174,9 +174,6 @@ class Accounts {
     }
 
     toCheckLogin(login) {
-        console.log(this.accountsUsers.get(User.hashCode(login)) === undefined)
-        console.log(User.hashCode(login))
-
         return (this.accountsUsers.get(User.hashCode(login)) === undefined)
     }
 
@@ -214,8 +211,9 @@ class Accounts {
         }
     }
 
-    addedWorkplace(workplace) {
+    addedWorkplace(workplace, target) {
         const element = this.accountsUsers.get(this.hashCode);
+        target.setAttribute("username", element.getFullName());
         element.setWorkplace(workplace);
         element.addVisitedWorkspace(new Date(), element.getWorkplace(), "come");
         this.serialize();
