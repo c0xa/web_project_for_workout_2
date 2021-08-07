@@ -10,7 +10,8 @@ A client application for tracking office visits and contact of sick employees wi
 
 The application has two themes.
 
-![Theme](img/theme.png)
+![Theme](img/light-theme.png)
+![Theme](img/dark-theme.png)
 
 Authentication window
 
@@ -26,7 +27,7 @@ After registering new employees, we can go to the main menu and go for one emplo
 
 An example of how the application works
 
-![Example](img/example.png)
+![Example](img/examples.png)
 
 
 #  Install 
