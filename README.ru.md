@@ -7,8 +7,8 @@
 
 Приложение имеет две темы.
 
-![Theme](img/light-theme.png)
-![Theme](img/dark-theme.png)
+![Theme](img/light-theme.jpg)
+![Theme](img/dark-theme.jpg)
 
 Окно аутентификации
 
@@ -24,7 +24,7 @@
 
 Пример работы приложения
 
-![Example](img/examples.png)
+![Example](img/examples.jpg)
 
 
 #  Установка 
