@@ -11,6 +11,7 @@ const gulp = require("gulp"),
 	browserSync = require("browser-sync").create(),
 	mergeStream = require("merge-stream"),
 	concat = require('gulp-concat');
+const {copyCLIIgnoreToWatchOptions} = require("browser-sync/dist/cli/transforms/copyCLIIgnoreToWatchOptions");
 	
 
 gulp.task("svgstore", function () {
@@ -119,3 +120,5 @@ gulp.task("serve", function () {
 gulp.task("build", series("svgstore", "less", "html", "scripts", "image", "icons"));
 
 gulp.task("default", series(parallel("svgstore", "less", "html", "scripts", "image", "icons"), "serve"));
+
+exports.build = series("svgstore", "less", "html", "scripts", "image", "icons");
