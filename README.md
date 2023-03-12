@@ -3,8 +3,6 @@
 - [:ru: RUS](./README.ru.md) - Русская документация
 - [:uk: ENG](./README.md) - English documentation
 
-https://office-work.herokuapp.com/
-
 # About
 A client application for tracking office visits and contact of sick employees with colleagues. The data is stored in localstorage.
 
